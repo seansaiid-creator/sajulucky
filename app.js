@@ -8,6 +8,14 @@
    ============================================= */
 document.addEventListener('DOMContentLoaded', function () {
 
+  // ── 카카오 SDK 초기화 ──
+  // ⚠️ https://developers.kakao.com 에서 발급한 JavaScript 앱 키를 입력하세요
+  // 기존 꿈해몽 사이트 키 재사용 가능: 7b87b3bb674e9bec0fd123f31a4e6e24
+  const KAKAO_APP_KEY = 'YOUR_KAKAO_APP_KEY_HERE';
+  if (typeof Kakao !== 'undefined' && !Kakao.isInitialized()) {
+    try { Kakao.init(KAKAO_APP_KEY); } catch(e) { console.warn('Kakao init 실패:', e); }
+  }
+
   // 년도 옵션 생성 (1930 ~ 2010)
   const yearSel = document.getElementById('birthYear');
   for (let y = 2010; y >= 1930; y--) {
@@ -450,17 +458,33 @@ function copyLink() {
 }
 
 function shareKakao() {
-  // 카카오 SDK 미설치 시 링크 복사로 대체
-  if (window.Kakao && window.Kakao.Share) {
-    window.Kakao.Share.sendDefault({
-      objectType: 'text',
-      text: '🔯 오늘의 사주 운세와 행운번호를 확인해보세요!',
-      link: { mobileWebUrl: window.location.href, webUrl: window.location.href }
-    });
-  } else {
+  if (typeof Kakao === 'undefined' || !Kakao.isInitialized()) {
+    // SDK 미초기화 시 링크 복사로 대체
     copyLink();
-    showToast('카카오톡으로 링크를 공유해보세요! 💬');
+    showToast('카카오 앱 키를 설정해주세요 💬');
+    return;
   }
+  Kakao.Share.sendDefault({
+    objectType: 'feed',
+    content: {
+      title: '🔯 오늘의 사주 운세 & 행운번호',
+      description: '생년월일로 오늘의 사주 운세와 나만의 행운번호를 받아보세요!',
+      imageUrl: 'https://via.placeholder.com/800x400/0a0612/e8c97a?text=%F0%9F%94%AF+%EC%82%AC%EC%A3%BC%ED%96%89%EC%9A%B4',
+      link: {
+        mobileWebUrl: window.location.href,
+        webUrl: window.location.href,
+      },
+    },
+    buttons: [
+      {
+        title: '운세 보러 가기',
+        link: {
+          mobileWebUrl: window.location.href,
+          webUrl: window.location.href,
+        },
+      },
+    ],
+  });
 }
 
 function copyNumbers() {
