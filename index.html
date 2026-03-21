@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>사주 행운번호 - 오늘의 운세와 나만의 행운 번호</title>
   <meta name="description" content="생년월일과 성별로 오늘의 사주 운세를 보고 나만의 행운 번호를 받아보세요. 무료 사주 행운번호 서비스." />
   <meta name="keywords" content="사주, 운세, 행운번호, 로또번호, 오늘운세, 사주팔자, 띠운세" />
@@ -10,11 +10,9 @@
   <meta property="og:description" content="생년월일과 성별로 오늘의 사주 운세를 보고 나만의 행운 번호를 받아보세요." />
   <meta property="og:type" content="website" />
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet" />
-
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -49,29 +47,18 @@
 
   <main class="main">
 
-    <!-- 히어로 섹션 -->
+    <!-- ① 히어로 섹션 — 컴팩트하게 축소 -->
     <section class="hero">
       <div class="hero-badge">✦ 무료 사주 운세 ✦</div>
-      <h1 class="hero-title">
-        <span class="title-line">오늘의 사주로</span>
-        <span class="title-line accent">행운을 잡으세요</span>
-      </h1>
-      <p class="hero-desc">생년월일과 성별만으로 오늘의 운세와<br/>나만의 행운번호를 받아보세요</p>
+      <h1 class="hero-title">오늘의 사주로 <span class="accent">행운을 잡으세요</span></h1>
+      <p class="hero-desc">생년월일과 성별만으로 오늘의 운세와 나만의 행운번호를 받아보세요</p>
+      <!-- ① 흐름 바 — 가로 한 줄, 아이콘+텍스트 작게 -->
       <div class="hero-flow">
-        <div class="flow-item">
-          <span class="flow-icon">📅</span>
-          <span>생년월일 입력</span>
-        </div>
+        <div class="flow-item"><span class="flow-icon">📅</span><span>생년월일</span></div>
         <span class="flow-arrow">→</span>
-        <div class="flow-item">
-          <span class="flow-icon">🔯</span>
-          <span>사주 분석</span>
-        </div>
+        <div class="flow-item"><span class="flow-icon">🔯</span><span>사주분석</span></div>
         <span class="flow-arrow">→</span>
-        <div class="flow-item">
-          <span class="flow-icon">🎰</span>
-          <span>행운번호</span>
-        </div>
+        <div class="flow-item"><span class="flow-icon">🎰</span><span>행운번호</span></div>
       </div>
     </section>
 
@@ -79,7 +66,7 @@
     <div class="ad-container ad-top">
       <div class="ad-placeholder">
         <span>ADVERTISEMENT</span>
-        <div class="ad-box" style="width:728px;height:90px;max-width:100%">광고 영역 (728×90)</div>
+        <div class="ad-box" style="width:100%;max-width:320px;height:50px">광고 영역</div>
       </div>
     </div>
 
@@ -92,34 +79,47 @@
           <span class="title-deco">✦</span>
         </h2>
 
+        <!-- ② ③ 년/월/일 모두 select로 통일, 라벨 상시 표시 -->
         <div class="form-group">
           <label class="form-label">생년월일</label>
           <div class="date-inputs">
+
             <div class="date-field">
-              <input type="number" id="birthYear" class="form-input" placeholder="년도" min="1930" max="2010" />
-              <span class="date-unit">년</span>
-            </div>
-            <div class="date-field">
-              <select id="birthMonth" class="form-input form-select">
-                <option value="">월</option>
-                <option value="1">1월</option>
-                <option value="2">2월</option>
-                <option value="3">3월</option>
-                <option value="4">4월</option>
-                <option value="5">5월</option>
-                <option value="6">6월</option>
-                <option value="7">7월</option>
-                <option value="8">8월</option>
-                <option value="9">9월</option>
-                <option value="10">10월</option>
-                <option value="11">11월</option>
-                <option value="12">12월</option>
+              <span class="date-unit-left">년</span>
+              <select id="birthYear" class="form-input form-select">
+                <option value="">선택</option>
+                <script>
+                  // 년도 옵션 동적 생성 (JS 미로드 대비 여기서 인라인)
+                </script>
               </select>
             </div>
+
             <div class="date-field">
-              <input type="number" id="birthDay" class="form-input" placeholder="일" min="1" max="31" />
-              <span class="date-unit">일</span>
+              <span class="date-unit-left">월</span>
+              <select id="birthMonth" class="form-input form-select">
+                <option value="">선택</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </select>
             </div>
+
+            <div class="date-field">
+              <span class="date-unit-left">일</span>
+              <select id="birthDay" class="form-input form-select">
+                <option value="">선택</option>
+              </select>
+            </div>
+
           </div>
         </div>
 
@@ -184,21 +184,15 @@
     <!-- 결과 섹션 -->
     <section class="result-section hidden" id="resultSection">
 
-      <!-- 사주 기본 정보 -->
       <div class="result-card saju-info-card">
         <div class="card-header">
           <span class="card-icon">☯</span>
           <h3 class="card-title">나의 사주 정보</h3>
         </div>
-        <div class="saju-pillars" id="sajuPillars">
-          <!-- JS로 채워짐 -->
-        </div>
-        <div class="saju-elements" id="sajuElements">
-          <!-- JS로 채워짐 -->
-        </div>
+        <div class="saju-pillars" id="sajuPillars"></div>
+        <div class="saju-elements" id="sajuElements"></div>
       </div>
 
-      <!-- 광고 영역 (중간) -->
       <div class="ad-container">
         <div class="ad-placeholder">
           <span>ADVERTISEMENT</span>
@@ -206,27 +200,15 @@
         </div>
       </div>
 
-      <!-- 오늘의 운세 -->
       <div class="result-card fortune-card">
         <div class="card-header">
           <span class="card-icon">🌟</span>
           <h3 class="card-title">오늘의 운세</h3>
           <span class="today-date" id="todayDate"></span>
         </div>
-
-        <div class="fortune-score-row" id="fortuneScores">
-          <!-- JS로 채워짐 -->
-        </div>
-
-        <div class="fortune-text" id="fortuneText">
-          <!-- JS로 채워짐 -->
-        </div>
-
-        <div class="fortune-advice" id="fortuneAdvice">
-          <!-- JS로 채워짐 -->
-        </div>
-
-        <!-- 공유 버튼 -->
+        <div class="fortune-score-row" id="fortuneScores"></div>
+        <div class="fortune-text" id="fortuneText"></div>
+        <div class="fortune-advice" id="fortuneAdvice"></div>
         <div class="share-buttons">
           <p class="share-label">📢 운세 결과 친구에게 공유하기</p>
           <button class="share-btn kakao" onclick="shareKakao()">💬 카카오톡</button>
@@ -234,7 +216,6 @@
         </div>
       </div>
 
-      <!-- 광고 영역 (중간2) -->
       <div class="ad-container">
         <div class="ad-placeholder">
           <span>ADVERTISEMENT</span>
@@ -242,21 +223,14 @@
         </div>
       </div>
 
-      <!-- 행운번호 -->
       <div class="result-card lucky-card">
         <div class="card-header">
           <span class="card-icon">🎰</span>
           <h3 class="card-title">오늘의 행운 번호</h3>
           <span class="subtitle">사주 기운으로 추출한 5세트</span>
         </div>
-
-        <div class="lucky-numbers-grid" id="luckyNumbers">
-          <!-- JS로 채워짐 -->
-        </div>
-
+        <div class="lucky-numbers-grid" id="luckyNumbers"></div>
         <button class="copy-btn" onclick="copyNumbers()">📋 번호 전체 복사</button>
-
-        <!-- 공유 버튼 -->
         <div class="share-buttons">
           <p class="share-label">📢 행운번호 친구에게 공유하기</p>
           <button class="share-btn kakao" onclick="shareKakao()">💬 카카오톡</button>
@@ -264,7 +238,6 @@
         </div>
       </div>
 
-      <!-- 광고 영역 (하단) -->
       <div class="ad-container">
         <div class="ad-placeholder">
           <span>ADVERTISEMENT</span>
@@ -272,30 +245,35 @@
         </div>
       </div>
 
-      <!-- 다시하기 -->
       <div class="reset-area">
         <button class="reset-btn" onclick="resetAll()">🔄 다시 보기</button>
       </div>
 
     </section>
 
-    <!-- 안내 섹션 (SEO용) -->
+    <!-- ⑤ 안내 섹션 — 아이콘 왼쪽 + 텍스트 오른쪽 (가로 레이아웃) -->
     <section class="info-section">
-      <div class="info-grid">
-        <div class="info-card">
-          <div class="info-icon">🌿</div>
-          <h3>사주팔자란?</h3>
-          <p>생년월일시의 네 기둥(四柱)과 여덟 글자(八字)로 타고난 운명의 흐름을 읽는 동양 전통 철학입니다.</p>
+      <div class="info-list">
+        <div class="info-row">
+          <div class="info-icon-wrap">🌿</div>
+          <div class="info-text-wrap">
+            <h3>사주팔자란?</h3>
+            <p>생년월일시의 네 기둥(四柱)과 여덟 글자(八字)로 타고난 운명의 흐름을 읽는 동양 전통 철학입니다.</p>
+          </div>
         </div>
-        <div class="info-card">
-          <div class="info-icon">⚡</div>
-          <h3>오행과 운세</h3>
-          <p>목(木)·화(火)·토(土)·금(金)·수(水) 다섯 기운의 균형으로 오늘 하루의 길흉과 주의사항을 풀어냅니다.</p>
+        <div class="info-row">
+          <div class="info-icon-wrap">⚡</div>
+          <div class="info-text-wrap">
+            <h3>오행과 운세</h3>
+            <p>목(木)·화(火)·토(土)·금(金)·수(水) 다섯 기운의 균형으로 오늘 하루의 길흉과 주의사항을 풀어냅니다.</p>
+          </div>
         </div>
-        <div class="info-card">
-          <div class="info-icon">🎰</div>
-          <h3>행운번호 원리</h3>
-          <p>사주의 오행 기운과 오늘 날짜의 에너지를 조합하여 오늘 하루 가장 어울리는 행운 번호를 추출합니다.</p>
+        <div class="info-row">
+          <div class="info-icon-wrap">🎰</div>
+          <div class="info-text-wrap">
+            <h3>행운번호 원리</h3>
+            <p>사주의 오행 기운과 오늘 날짜의 에너지를 조합하여 오늘 하루 가장 어울리는 행운 번호를 추출합니다.</p>
+          </div>
         </div>
       </div>
     </section>

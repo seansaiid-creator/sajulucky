@@ -3,6 +3,46 @@
    Gemini API (무료 티어) + 템플릿 혼합 방식
    ============================================= */
 
+/* =============================================
+   페이지 초기화 — 년도 select 생성 + 일수 연동
+   ============================================= */
+document.addEventListener('DOMContentLoaded', function () {
+
+  // 년도 옵션 생성 (1930 ~ 2010)
+  const yearSel = document.getElementById('birthYear');
+  for (let y = 2010; y >= 1930; y--) {
+    const opt = document.createElement('option');
+    opt.value = y;
+    opt.textContent = y;
+    yearSel.appendChild(opt);
+  }
+
+  // 월/년 변경 시 일수 자동 업데이트
+  function updateDays() {
+    const year  = parseInt(yearSel.value) || 2000;
+    const month = parseInt(document.getElementById('birthMonth').value) || 1;
+    const daySel = document.getElementById('birthDay');
+    const prevVal = daySel.value;
+    const maxDay = new Date(year, month, 0).getDate();
+
+    // 기존 옵션 제거 후 재생성
+    daySel.innerHTML = '<option value="">선택</option>';
+    for (let d = 1; d <= maxDay; d++) {
+      const opt = document.createElement('option');
+      opt.value = d;
+      opt.textContent = d;
+      daySel.appendChild(opt);
+    }
+    // 이전 값 유지 (범위 내일 때)
+    if (prevVal && parseInt(prevVal) <= maxDay) daySel.value = prevVal;
+  }
+
+  // 초기 일수 채우기
+  updateDays();
+  document.getElementById('birthMonth').addEventListener('change', updateDays);
+  yearSel.addEventListener('change', updateDays);
+});
+
 // ⚠️ Gemini API 키를 여기에 입력하세요
 // Google AI Studio (https://aistudio.google.com) 에서 무료 발급
 const GEMINI_API_KEY = 'YOUR_GEMINI_API_KEY_HERE';
@@ -270,12 +310,9 @@ async function startFortune() {
   const hour  = document.getElementById('birthHour').value;
 
   // 유효성 검사
-  if (!year || year < 1930 || year > 2010) {
-    showToast('올바른 출생 연도를 입력해주세요 (1930~2010)');
-    return;
-  }
+  if (!year) { showToast('태어난 년도를 선택해주세요'); return; }
   if (!month) { showToast('태어난 월을 선택해주세요'); return; }
-  if (!day || day < 1 || day > 31) { showToast('올바른 태어난 날짜를 입력해주세요'); return; }
+  if (!day) { showToast('태어난 일을 선택해주세요'); return; }
   if (!selectedGender) { showToast('성별을 선택해주세요'); return; }
 
   // 섹션 전환
