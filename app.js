@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // ── 카카오 SDK 초기화 ──
   // ⚠️ https://developers.kakao.com 에서 발급한 JavaScript 앱 키를 입력하세요
   // 기존 꿈해몽 사이트 키 재사용 가능: 7b87b3bb674e9bec0fd123f31a4e6e24
-  const KAKAO_APP_KEY = 'YOUR_KAKAO_APP_KEY_HERE';
+  const KAKAO_APP_KEY = '7b87b3bb674e9bec0fd123f31a4e6e24';
   if (typeof Kakao !== 'undefined' && !Kakao.isInitialized()) {
     try { Kakao.init(KAKAO_APP_KEY); } catch(e) { console.warn('Kakao init 실패:', e); }
   }
