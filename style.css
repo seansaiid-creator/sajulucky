@@ -128,6 +128,33 @@ body {
   padding: 0 16px 72px;
 }
 
+/* ① 히어로 이미지 */
+.hero-image-wrap {
+  margin: 10px auto 14px;
+  width: 100%;
+  max-width: 300px;
+  position: relative;
+}
+
+.hero-svg {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 20px rgba(232,201,122,0.15));
+  animation: svgFloat 5s ease-in-out infinite;
+}
+
+@keyframes svgFloat {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+/* 광고 배너 (100px 높이) */
+.ad-banner {
+  width: 320px;
+  max-width: 100%;
+  height: 100px;
+}
+
 /* ===== ① 히어로 — 컴팩트 ===== */
 .hero {
   text-align: center;

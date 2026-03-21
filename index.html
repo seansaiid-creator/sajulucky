@@ -47,12 +47,70 @@
 
   <main class="main">
 
-    <!-- ① 히어로 섹션 — 컴팩트하게 축소 -->
+    <!-- ① 히어로 섹션 — 이미지 포함 -->
     <section class="hero">
       <div class="hero-badge">✦ 무료 사주 운세 ✦</div>
       <h1 class="hero-title">오늘의 사주로 <span class="accent">행운을 잡으세요</span></h1>
-      <p class="hero-desc">생년월일과 성별만으로 오늘의 운세와 나만의 행운번호를 받아보세요</p>
-      <!-- ① 흐름 바 — 가로 한 줄, 아이콘+텍스트 작게 -->
+      <p class="hero-desc">생년월일로 오늘의 운세와 행운번호를 받아보세요</p>
+
+      <!-- ① 사주 이미지 (SVG 인라인) -->
+      <div class="hero-image-wrap">
+        <svg class="hero-svg" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+          <!-- 배경 원광 -->
+          <circle cx="160" cy="90" r="78" fill="none" stroke="rgba(232,201,122,0.12)" stroke-width="1"/>
+          <circle cx="160" cy="90" r="62" fill="none" stroke="rgba(232,201,122,0.08)" stroke-width="1"/>
+          <!-- 팔괘 바탕 원 -->
+          <circle cx="160" cy="90" r="48" fill="rgba(22,16,42,0.9)" stroke="rgba(232,201,122,0.35)" stroke-width="1.2"/>
+          <!-- 음양 태극 -->
+          <path d="M160,48 A42,42 0 0,1 160,132 A21,21 0 0,1 160,90 A21,21 0 0,0 160,48Z" fill="rgba(232,201,122,0.55)"/>
+          <path d="M160,48 A42,42 0 0,0 160,132 A21,21 0 0,0 160,90 A21,21 0 0,1 160,48Z" fill="rgba(167,139,250,0.4)"/>
+          <circle cx="160" cy="69" r="7" fill="rgba(167,139,250,0.5)"/>
+          <circle cx="160" cy="111" r="7" fill="rgba(232,201,122,0.7)"/>
+          <circle cx="160" cy="69" r="3" fill="rgba(232,201,122,0.9)"/>
+          <circle cx="160" cy="111" r="3" fill="rgba(22,16,42,0.9)"/>
+          <!-- 외곽 팔괘 선 -->
+          <g stroke="rgba(232,201,122,0.5)" stroke-width="2.5" stroke-linecap="round">
+            <!-- 건 -->
+            <line x1="148" y1="20" x2="172" y2="20"/><line x1="148" y1="24" x2="172" y2="24"/><line x1="148" y1="28" x2="172" y2="28"/>
+            <!-- 곤 -->
+            <line x1="148" y1="152" x2="158" y2="152"/><line x1="162" y1="152" x2="172" y2="152"/>
+            <line x1="148" y1="156" x2="158" y2="156"/><line x1="162" y1="156" x2="172" y2="156"/>
+            <line x1="148" y1="160" x2="158" y2="160"/><line x1="162" y1="160" x2="172" y2="160"/>
+            <!-- 감 (왼) -->
+            <line x1="22" y1="82" x2="36" y2="82"/><line x1="22" y1="86" x2="36" y2="86"/><line x1="22" y1="90" x2="36" y2="90"/>
+            <!-- 리 (오) -->
+            <line x1="284" y1="82" x2="298" y2="82"/>
+            <line x1="284" y1="86" x2="290" y2="86"/><line x1="292" y1="86" x2="298" y2="86"/>
+            <line x1="284" y1="90" x2="298" y2="90"/>
+          </g>
+          <!-- 별 장식 -->
+          <g fill="rgba(232,201,122,0.7)" font-size="10">
+            <text x="54" y="38">✦</text>
+            <text x="254" y="38">✦</text>
+            <text x="54" y="150">✦</text>
+            <text x="254" y="150">✦</text>
+          </g>
+          <!-- 오행 텍스트 -->
+          <g font-family="serif" font-size="11" font-weight="bold" text-anchor="middle">
+            <text x="160" y="14" fill="rgba(232,201,122,0.6)">火</text>
+            <text x="160" y="174" fill="rgba(96,165,250,0.6)">水</text>
+            <text x="16"  y="95"  fill="rgba(74,222,128,0.6)">木</text>
+            <text x="304" y="95"  fill="rgba(209,213,219,0.6)">金</text>
+            <text x="160" y="95"  fill="rgba(251,191,36,0.5)" font-size="9">土</text>
+          </g>
+          <!-- 반짝이 별빛 -->
+          <g fill="white" opacity="0.5">
+            <circle cx="80"  cy="50"  r="1.2"/>
+            <circle cx="240" cy="50"  r="1.5"/>
+            <circle cx="70"  cy="130" r="1"/>
+            <circle cx="250" cy="130" r="1.2"/>
+            <circle cx="110" cy="20"  r="0.9"/>
+            <circle cx="210" cy="165" r="1"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- 흐름 바 -->
       <div class="hero-flow">
         <div class="flow-item"><span class="flow-icon">📅</span><span>생년월일</span></div>
         <span class="flow-arrow">→</span>
@@ -62,13 +120,7 @@
       </div>
     </section>
 
-    <!-- 광고 영역 (상단) -->
-    <div class="ad-container ad-top">
-      <div class="ad-placeholder">
-        <span>ADVERTISEMENT</span>
-        <div class="ad-box" style="width:100%;max-width:320px;height:50px">광고 영역</div>
-      </div>
-    </div>
+    <!-- ③ 상단 광고 제거 — 이미지로 대체 -->
 
     <!-- 입력 섹션 -->
     <section class="input-section" id="inputSection">
@@ -163,23 +215,7 @@
       </div>
     </section>
 
-    <!-- 로딩 섹션 -->
-    <section class="loading-section hidden" id="loadingSection">
-      <div class="loading-card">
-        <div class="loading-orb">
-          <div class="orb-ring ring1"></div>
-          <div class="orb-ring ring2"></div>
-          <div class="orb-ring ring3"></div>
-          <span class="orb-icon">🔯</span>
-        </div>
-        <p class="loading-title">사주를 분석하는 중...</p>
-        <div class="loading-steps">
-          <div class="loading-step active" id="step1">✦ 생년월일로 사주팔자 산출 중...</div>
-          <div class="loading-step" id="step2">✦ 오늘의 운세 분석 중...</div>
-          <div class="loading-step" id="step3">✦ 행운의 기운으로 번호 추출 중...</div>
-        </div>
-      </div>
-    </section>
+    <!-- ④ 로딩 섹션 제거 -->
 
     <!-- 결과 섹션 -->
     <section class="result-section hidden" id="resultSection">
@@ -191,13 +227,6 @@
         </div>
         <div class="saju-pillars" id="sajuPillars"></div>
         <div class="saju-elements" id="sajuElements"></div>
-      </div>
-
-      <div class="ad-container">
-        <div class="ad-placeholder">
-          <span>ADVERTISEMENT</span>
-          <div class="ad-box" style="width:320px;height:250px">광고 영역 (320×250)</div>
-        </div>
       </div>
 
       <div class="result-card fortune-card">
@@ -218,10 +247,11 @@
         </div>
       </div>
 
+      <!-- ⑤ 광고 1 — 운세와 행운번호 사이 (자연스러운 멈춤 포인트) -->
       <div class="ad-container">
         <div class="ad-placeholder">
           <span>ADVERTISEMENT</span>
-          <div class="ad-box" style="width:320px;height:250px">광고 영역 (320×250)</div>
+          <div class="ad-box ad-banner">광고 영역 (320×100)</div>
         </div>
       </div>
 
@@ -242,10 +272,11 @@
         </div>
       </div>
 
+      <!-- ⑤ 광고 2 — 행운번호 아래, 다시보기 전 (종료 전 자연스러운 노출) -->
       <div class="ad-container">
         <div class="ad-placeholder">
           <span>ADVERTISEMENT</span>
-          <div class="ad-box" style="width:320px;height:50px">광고 영역 (320×50)</div>
+          <div class="ad-box ad-banner">광고 영역 (320×100)</div>
         </div>
       </div>
 

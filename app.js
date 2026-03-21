@@ -323,16 +323,9 @@ async function startFortune() {
   if (!day) { showToast('태어난 일을 선택해주세요'); return; }
   if (!selectedGender) { showToast('성별을 선택해주세요'); return; }
 
-  // 섹션 전환
+  // 섹션 전환 — 히어로/입력 숨기고 결과 바로 표시
   document.getElementById('inputSection').classList.add('hidden');
-  document.getElementById('loadingSection').classList.remove('hidden');
-
-  // 로딩 스텝 애니메이션
-  const steps = ['step1','step2','step3'];
-  for (let i = 0; i < steps.length; i++) {
-    await delay(900);
-    document.getElementById(steps[i]).classList.add('active');
-  }
+  document.querySelector('.hero').classList.add('hidden');   // ④ 히어로 숨김
 
   // 사주 계산
   const saju = getSaju(year, month, day, hour || null);
@@ -356,10 +349,7 @@ async function startFortune() {
   // 행운번호 생성
   currentNumbers = generateLuckyNumbers(saju, selectedGender);
 
-  await delay(400);
-
-  // 로딩 숨기기 & 결과 표시
-  document.getElementById('loadingSection').classList.add('hidden');
+  // 결과 바로 표시
   document.getElementById('resultSection').classList.remove('hidden');
 
   renderResult(saju, fortune, currentNumbers);
@@ -436,13 +426,8 @@ function renderResult(saju, fortune, numbers) {
 
 function resetAll() {
   document.getElementById('resultSection').classList.add('hidden');
-  document.getElementById('loadingSection').classList.add('hidden');
   document.getElementById('inputSection').classList.remove('hidden');
-
-  // 로딩 스텝 초기화
-  document.querySelectorAll('.loading-step').forEach((el, i) => {
-    el.classList.toggle('active', i === 0);
-  });
+  document.querySelector('.hero').classList.remove('hidden'); // ④ 히어로 복구
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
