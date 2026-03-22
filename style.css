@@ -155,6 +155,13 @@ body {
   height: 100px;
 }
 
+/* 광고 Large Rectangle (336×280) */
+.ad-rect {
+  width: 336px;
+  max-width: 100%;
+  height: 280px;
+}
+
 /* ===== ① 히어로 — 컴팩트 ===== */
 .hero {
   text-align: center;
