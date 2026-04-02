@@ -1,13 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://sajulucky.vercel.app/saju-love.html</loc></url>
-  <url><loc>https://sajulucky.vercel.app/saju-money.html</loc></url>
-  <url><loc>https://sajulucky.vercel.app/saju-career.html</loc></url>
-  <url><loc>https://sajulucky.vercel.app/saju-marriage.html</loc></url>
-  <url><loc>https://sajulucky.vercel.app/saju-compatibility.html</loc></url>
-  <url><loc>https://sajulucky.vercel.app/saju-2026.html</loc></url>
-  <url><loc>https://sajulucky.vercel.app/saju-today.html</loc></url>
-  <url><loc>https://sajulucky.vercel.app/saju-lucky-number.html</loc></url>
-  <url><loc>https://sajulucky.vercel.app/saju-five-elements.html</loc></url>
-  <url><loc>https://sajulucky.vercel.app/saju-birthday.html</loc></url>
+
+  <url>
+    <loc>https://sajulucky.vercel.app/saju-love.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://sajulucky.vercel.app/saju-money.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://sajulucky.vercel.app/saju-career.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://sajulucky.vercel.app/saju-marriage.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://sajulucky.vercel.app/saju-compatibility.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://sajulucky.vercel.app/saju-2026.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://sajulucky.vercel.app/saju-today.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://sajulucky.vercel.app/saju-lucky-number.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://sajulucky.vercel.app/saju-five-elements.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://sajulucky.vercel.app/saju-birthday.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>

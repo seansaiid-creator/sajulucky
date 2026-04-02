@@ -1,8 +1,4 @@
 User-agent: *
 Allow: /
 
-# 개인정보/약관 페이지는 크롤링 제외
-Disallow: /privacy
-Disallow: /terms
-
 Sitemap: https://sajulucky.vercel.app/sitemap.xml
