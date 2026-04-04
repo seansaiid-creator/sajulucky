@@ -61,7 +61,6 @@ const GEMINI_API_KEY = 'YOUR_GEMINI_API_KEY_HERE';
 // 주제 설정
 // ========================
 
-
 const TOPIC_CONFIG = {
   today: { label: '오늘의 운세', title: '오늘의 사주', promptHint: '전체 운세를 중심으로 오늘의 흐름을 균형 있게 설명하세요.' },
   love: { label: '연애운', title: '연애운 사주 풀이', promptHint: '연애운을 중심으로 감정 흐름, 대화 분위기, 관계 진전 가능성을 설명하세요.' },
@@ -333,8 +332,7 @@ function selectGender(g) {
 }
 
 function initTopicSelection() {
-  const buttons = document.querySelectorAll('.topic-select-btn');
-  buttons.forEach(btn => {
+  document.querySelectorAll('.topic-select-btn').forEach(btn => {
     btn.addEventListener('click', function () {
       selectedTopic = this.dataset.topic || 'today';
       updateTopicUI();
@@ -350,13 +348,13 @@ function updateTopicUI() {
 }
 
 function hideTopicSelectionOnResult() {
-  const topicSection = document.getElementById('topicSelectSection');
-  if (topicSection) topicSection.classList.add('hidden');
+  const el = document.getElementById('topicSelectSection');
+  if (el) el.classList.add('hidden');
 }
 
 function showTopicSelectionOnReset() {
-  const topicSection = document.getElementById('topicSelectSection');
-  if (topicSection) topicSection.classList.remove('hidden');
+  const el = document.getElementById('topicSelectSection');
+  if (el) el.classList.remove('hidden');
   updateTopicUI();
 }
 
@@ -368,10 +366,12 @@ function renderFollowupCard() {
   const cfg = TOPIC_CONFIG[selectedTopic] || TOPIC_CONFIG.today;
   if (!card || !title || !desc || !links) return;
 
-  const otherTopics = Object.entries(TOPIC_CONFIG).filter(([key]) => key !== selectedTopic);
+  const others = Object.entries(TOPIC_CONFIG).filter(([key]) => key !== selectedTopic);
   title.textContent = `${cfg.label}을(를) 보셨다면 다른 주제로 다시 볼 수 있습니다`;
   desc.textContent = '입력했던 생년월일, 성별, 태어난 시간은 그대로 유지한 채 첫 화면으로 돌아갑니다.';
-  links.innerHTML = otherTopics.map(([key, item]) => `<button type="button" class="topic-follow-link" data-topic="${key}">${item.label}으로 다시 보기</button>`).join('');
+  links.innerHTML = others.map(([key, item]) =>
+    `<button type="button" class="topic-follow-link" data-topic="${key}">${item.label}으로 다시 보기</button>`
+  ).join('');
 
   links.querySelectorAll('.topic-follow-link').forEach(btn => {
     btn.addEventListener('click', function () {
@@ -393,7 +393,6 @@ function renderFollowupCard() {
 function ensureLongFortuneText(text) {
   const clean = (text || '').trim();
   if (clean.length >= 260) return clean;
-
   const extraMap = {
     today: ' 오늘은 전체적인 흐름을 넓게 보되, 중요한 결정을 서두르기보다는 상황을 한 번 더 점검하는 태도가 도움이 됩니다. 작은 선택에서도 차분함을 유지하면 하루의 만족도가 높아질 수 있습니다.',
     love: ' 특히 연애운 관점에서는 감정 표현의 속도와 말의 분위기가 중요합니다. 상대의 반응을 조급하게 해석하기보다, 자연스러운 흐름을 유지하는 태도가 관계 안정에 도움이 됩니다.',
@@ -402,7 +401,6 @@ function ensureLongFortuneText(text) {
     health: ' 특히 건강운 관점에서는 무리해서 끌고 가기보다 휴식과 리듬을 조절하는 것이 중요합니다. 컨디션을 세심하게 살피고 일상의 속도를 조절하면 더 안정적인 흐름을 만들 수 있습니다.',
     relationship: ' 특히 인간관계 관점에서는 말의 강도와 거리 조절이 중요합니다. 중요한 관계일수록 한 템포 여유 있게 반응하는 편이 좋습니다.'
   };
-
   return clean + (extraMap[selectedTopic] || extraMap.today);
 }
 
