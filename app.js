@@ -59,6 +59,20 @@ document.addEventListener('DOMContentLoaded', function () {
 const GEMINI_API_KEY = 'YOUR_GEMINI_API_KEY_HERE';
 
 // ========================
+// 주제 설정
+// ========================
+
+
+const TOPIC_CONFIG = {
+  today: { label: '오늘의 운세', title: '오늘의 사주', promptHint: '전체 운세를 중심으로 오늘의 흐름을 균형 있게 설명하세요.' },
+  love: { label: '연애운', title: '연애운 사주 풀이', promptHint: '연애운을 중심으로 감정 흐름, 대화 분위기, 관계 진전 가능성을 설명하세요.' },
+  money: { label: '금전운', title: '금전운 사주 풀이', promptHint: '금전운을 중심으로 재물 흐름, 지출 관리, 수입 기회를 설명하세요.' },
+  career: { label: '직업운', title: '직업운 사주 풀이', promptHint: '직업운을 중심으로 업무 흐름, 평가, 이직·승진 가능성을 설명하세요.' },
+  health: { label: '건강운', title: '건강운 사주 풀이', promptHint: '건강운을 중심으로 컨디션 흐름, 생활 리듬, 휴식 포인트를 설명하세요.' },
+  relationship: { label: '인간관계', title: '인간관계 사주 풀이', promptHint: '인간관계를 중심으로 대인관계 흐름, 소통 분위기, 오해 가능성을 설명하세요.' }
+};
+
+// ========================
 // 사주 데이터 상수
 // ========================
 
@@ -308,81 +322,6 @@ async function getFortuneFromGemini(saju, gender, topicKey = 'today') {
 // 상태 관리
 // ========================
 
-const TOPIC_CONFIG = {
-  today: {
-    label: '오늘의 운세',
-    title: '오늘의 사주',
-    promptHint: '전체 운세를 중심으로 오늘의 흐름을 균형 있게 설명하세요.',
-    desc: '오늘의 운세를 보셨다면, 더 자세한 흐름을 위해 아래 주제도 함께 확인해보세요.',
-    links: [
-      { text: '연애운 보기', href: 'saju-love.html' },
-      { text: '금전운 보기', href: 'saju-money.html' },
-      { text: '직업운 보기', href: 'saju-career.html' },
-      { text: '행운번호 보기', href: 'saju-lucky-number.html' }
-    ]
-  },
-  love: {
-    label: '연애운',
-    title: '연애운 사주 풀이',
-    promptHint: '연애운을 중심으로 감정 흐름, 대화 분위기, 관계 진전 가능성을 설명하세요.',
-    desc: '연애운을 보셨다면, 관계 흐름을 더 입체적으로 보기 위해 아래 운세도 함께 확인해보세요.',
-    links: [
-      { text: '재회운 보기', href: 'saju-reunion.html' },
-      { text: '궁합 보기', href: 'saju-compatibility.html' },
-      { text: '결혼운 보기', href: 'saju-marriage.html' },
-      { text: '새 인연운 보기', href: 'saju-new-love.html' }
-    ]
-  },
-  money: {
-    label: '금전운',
-    title: '금전운 사주 풀이',
-    promptHint: '금전운을 중심으로 재물 흐름, 지출 관리, 수입 기회를 설명하세요.',
-    desc: '금전운을 보셨다면, 돈의 흐름과 연결되는 아래 운세도 함께 확인해보세요.',
-    links: [
-      { text: '사업운 보기', href: 'saju-business.html' },
-      { text: '부업운 보기', href: 'saju-sidejob.html' },
-      { text: '계약운 보기', href: 'saju-contract.html' },
-      { text: '재물복 보기', href: 'saju-wealth-luck.html' }
-    ]
-  },
-  career: {
-    label: '직업운',
-    title: '직업운 사주 풀이',
-    promptHint: '직업운을 중심으로 업무 흐름, 평가, 이직/승진 가능성을 설명하세요.',
-    desc: '직업운을 보셨다면, 커리어 흐름을 더 구체적으로 보기 위해 아래 운세도 함께 확인해보세요.',
-    links: [
-      { text: '이직운 보기', href: 'saju-job-change.html' },
-      { text: '승진운 보기', href: 'saju-promotion.html' },
-      { text: '사업운 보기', href: 'saju-business.html' },
-      { text: '공부운 보기', href: 'saju-study.html' }
-    ]
-  },
-  health: {
-    label: '건강운',
-    title: '건강운 사주 풀이',
-    promptHint: '건강운을 중심으로 컨디션 흐름, 생활 리듬, 휴식 포인트를 설명하세요.',
-    desc: '건강운을 보셨다면, 생활 리듬과 주변 흐름까지 함께 보기 위해 아래 운세도 확인해보세요.',
-    links: [
-      { text: '가족운 보기', href: 'saju-family.html' },
-      { text: '여행운 보기', href: 'saju-travel.html' },
-      { text: '오늘의 사주 보기', href: 'saju-today.html' },
-      { text: '오행 설명 보기', href: 'saju-five-elements.html' }
-    ]
-  },
-  relationship: {
-    label: '인간관계',
-    title: '인간관계 사주 풀이',
-    promptHint: '인간관계를 중심으로 대인관계 흐름, 소통 분위기, 오해 가능성을 설명하세요.',
-    desc: '인간관계를 보셨다면, 사람 흐름과 연결되는 아래 운세도 함께 확인해보세요.',
-    links: [
-      { text: '대인운 보기', href: 'saju-social-luck.html' },
-      { text: '궁합 보기', href: 'saju-compatibility.html' },
-      { text: '연애운 보기', href: 'saju-love.html' },
-      { text: '가족운 보기', href: 'saju-family.html' }
-    ]
-  }
-};
-
 let selectedGender = null;
 let currentNumbers = [];
 let selectedTopic = 'today';
@@ -430,9 +369,19 @@ function renderFollowupCard() {
   const cfg = TOPIC_CONFIG[selectedTopic] || TOPIC_CONFIG.today;
   if (!card || !title || !desc || !links) return;
 
-  title.textContent = `${cfg.label}을(를) 보셨다면 이어서 보면 좋은 운세`;
-  desc.textContent = cfg.desc;
-  links.innerHTML = cfg.links.map(item => `<a href="${item.href}" class="topic-follow-link">${item.text}</a>`).join('');
+  const otherTopics = Object.entries(TOPIC_CONFIG).filter(([key]) => key !== selectedTopic);
+  title.textContent = `${cfg.label}을(를) 보셨다면 다른 주제도 이어서 확인해보세요`;
+  desc.textContent = '생년월일과 태어난 시간은 그대로 유지한 채, 다른 주제의 사주 풀이를 바로 다시 볼 수 있습니다.';
+  links.innerHTML = otherTopics.map(([key, item]) => `<button type="button" class="topic-follow-link" data-topic="${key}">${item.label}</button>`).join('');
+
+  links.querySelectorAll('.topic-follow-link').forEach(btn => {
+    btn.addEventListener('click', async function () {
+      selectedTopic = this.dataset.topic || 'today';
+      updateTopicUI();
+      await startFortune(true);
+    });
+  });
+
   card.classList.remove('hidden');
 }
 
@@ -456,7 +405,7 @@ function ensureLongFortuneText(text) {
 // 메인 실행
 // ========================
 
-async function startFortune() {
+async function startFortune(isRerender = false) {
   const year  = parseInt(document.getElementById('birthYear').value);
   const month = parseInt(document.getElementById('birthMonth').value);
   const day   = parseInt(document.getElementById('birthDay').value);
@@ -484,18 +433,12 @@ async function startFortune() {
     } else {
       // 템플릿 폴백
       const tpl = getFortuneTemplate(saju, selectedGender);
-      fortune = {
-        fortune: `${(TOPIC_CONFIG[selectedTopic] || TOPIC_CONFIG.today).label}을 중심으로 보면 ${tpl.text}`,
-        advice: tpl.advice
-      };
+      fortune = { fortune: `${(TOPIC_CONFIG[selectedTopic] || TOPIC_CONFIG.today).label}을 중심으로 보면 ${tpl.text}`, advice: tpl.advice };
     }
   } catch (e) {
     console.warn('Gemini API 실패, 템플릿 사용:', e);
     const tpl = getFortuneTemplate(saju, selectedGender);
-    fortune = {
-      fortune: `${(TOPIC_CONFIG[selectedTopic] || TOPIC_CONFIG.today).label}을 중심으로 보면 ${tpl.text}`,
-      advice: tpl.advice
-    };
+    fortune = { fortune: `${(TOPIC_CONFIG[selectedTopic] || TOPIC_CONFIG.today).label}을 중심으로 보면 ${tpl.text}`, advice: tpl.advice };
   }
 
   fortune.fortune = ensureLongFortuneText(fortune.fortune);
@@ -508,7 +451,7 @@ async function startFortune() {
 
   renderResult(saju, fortune, currentNumbers);
   renderFollowupCard();
-  document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth' });
+  if (!isRerender) document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth' });
 }
 
 // ========================

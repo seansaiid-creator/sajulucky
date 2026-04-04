@@ -808,12 +808,11 @@ body {
 }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-
 /* ===== 주제 선택 UI ===== */
 .topic-select-desc {
   color: var(--text-sub);
   font-size: 14px;
-  line-height: 1.9;
+  line-height: 1.85;
   text-align: center;
   margin-bottom: 16px;
 }
@@ -826,8 +825,8 @@ body {
 
 .topic-select-btn {
   width: 100%;
-  min-height: 48px;
-  padding: 9px 6px;
+  min-height: 46px;
+  padding: 8px 6px;
   border-radius: 14px;
   border: 1px solid var(--border);
   background: rgba(255,255,255,0.03);
@@ -836,7 +835,7 @@ body {
   font-size: 13px;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.18s ease;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -876,7 +875,6 @@ body {
   min-height: 40px;
   padding: 7px 5px;
   border-radius: 14px;
-  text-decoration: none;
   text-align: center;
   background: rgba(255,255,255,0.03);
   border: 1px solid var(--border);
@@ -884,7 +882,14 @@ body {
   font-size: 11px;
   font-weight: 700;
   line-height: 1.35;
-  transition: all 0.2s ease;
+  transition: all 0.18s ease;
+  cursor: pointer;
+  font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button.topic-follow-link {
+  width: 100%;
 }
 
 .topic-follow-link:active,
