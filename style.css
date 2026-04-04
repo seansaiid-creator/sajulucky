@@ -807,3 +807,96 @@ body {
   white-space: nowrap;
 }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+
+/* ===== 주제 선택 UI 개선 ===== */
+.fortune-topic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.topic-select-btn {
+  width: 100%;
+  min-height: 54px;
+  padding: 12px 10px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.03);
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.topic-select-btn:active { transform: scale(0.98); }
+
+.topic-select-btn.topic-active {
+  background: linear-gradient(135deg, #c8a84b, #e8c97a, #c8a84b);
+  color: #0a0612;
+  border-color: rgba(232,201,122,0.85);
+  box-shadow: 0 8px 20px rgba(232,201,122,0.18);
+}
+
+.ad-container-inline { margin: 12px 0 14px; }
+
+.followup-topic-card { margin-top: 14px; }
+
+.followup-topic-desc {
+  color: var(--text-sub);
+  font-size: 13px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.followup-topic-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.topic-follow-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 8px 6px;
+  border-radius: 14px;
+  text-decoration: none;
+  text-align: center;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+  transition: all 0.2s ease;
+}
+
+.topic-follow-link:active,
+.topic-follow-link:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+@media (max-width: 640px) {
+  .fortune-topic-grid,
+  .followup-topic-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .topic-select-btn {
+    min-height: 50px;
+    font-size: 13px;
+    padding: 10px 8px;
+  }
+
+  .topic-follow-link {
+    min-height: 42px;
+    font-size: 12px;
+    padding: 8px 6px;
+  }
+}
