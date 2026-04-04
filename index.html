@@ -157,6 +157,31 @@
 
     <!-- ③ 상단 광고 제거 — 이미지로 대체 -->
 
+
+    <!-- 주제 선택 섹션 -->
+    <section class="input-section" id="topicSelectSection">
+      <div class="section-card">
+        <h2 class="section-title">
+          <span class="title-deco">✦</span>
+          먼저 궁금한 운세를 선택하세요
+          <span class="title-deco">✦</span>
+        </h2>
+        <p class="topic-select-desc">
+          지금 가장 궁금한 분야를 먼저 선택하면, 결과를 더 자연스럽게 읽고 이어서 관련 운세도 확인할 수 있습니다.
+        </p>
+
+        <div id="fortuneTopicGrid" class="fortune-topic-grid">
+          <button type="button" class="topic-select-btn topic-active" data-topic="today">오늘의 운세</button>
+          <button type="button" class="topic-select-btn" data-topic="love">연애운</button>
+          <button type="button" class="topic-select-btn" data-topic="money">금전운</button>
+          <button type="button" class="topic-select-btn" data-topic="career">직업운</button>
+          <button type="button" class="topic-select-btn" data-topic="health">건강운</button>
+          <button type="button" class="topic-select-btn" data-topic="relationship">인간관계</button>
+        </div>
+      </div>
+    </section>
+
+
     <!-- 입력 섹션 -->
     <section class="input-section" id="inputSection">
       <div class="section-card">
@@ -267,14 +292,14 @@
       <div class="result-card fortune-card">
         <div class="card-header">
           <span class="card-icon">🌟</span>
-          <h3 class="card-title">오늘의 운세</h3>
+          <h3 class="card-title" id="fortuneCardTitle">오늘의 운세</h3>
           <span class="today-date" id="todayDate"></span>
         </div>
         <div class="fortune-score-row" id="fortuneScores"></div>
         <div class="fortune-text" id="fortuneText"></div>
 
         <!-- 광고 1 — 사주풀이 바로 아래, 오늘의 조언 위 -->
-        <div class="ad-container ad-container-inline">
+        <div class="ad-container ad-container-inline" id="fortuneAdTop">
           <div class="ad-placeholder">
             <span>ADVERTISEMENT</span>
             <div class="ad-box ad-rect">광고 영역 (336×280)</div>
@@ -302,6 +327,31 @@
           <div id="followupTopicLinks" class="followup-topic-links"></div>
         </div>
 
+      </div>
+
+      <div class="result-card lucky-card">
+        <div class="card-header">
+          <span class="card-icon">🎰</span>
+          <h3 class="card-title">오늘의 행운 번호</h3>
+          <span class="subtitle">사주 기운으로 추출한 5세트</span>
+        </div>
+        <div class="lucky-numbers-grid" id="luckyNumbers"></div>
+        <button class="copy-btn" onclick="copyNumbers()">📋 번호 전체 복사</button>
+        <div class="share-buttons">
+          <p class="share-label">📢 행운번호 친구에게 공유하기</p>
+          <div class="share-btn-row">
+            <button class="share-btn kakao" onclick="shareKakao()">💬 카카오톡</button>
+            <button class="share-btn copy" onclick="copyLink()">🔗 링크 복사</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 광고 2 — 행운번호 아래, 다시보기 전 (336×280 Large Rectangle) -->
+      <div class="ad-container">
+        <div class="ad-placeholder">
+          <span>ADVERTISEMENT</span>
+          <div class="ad-box ad-rect">광고 영역 (336×280)</div>
+        </div>
       </div>
 
       <div class="reset-area">
