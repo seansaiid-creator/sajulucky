@@ -358,6 +358,19 @@ function showTopicSelectionOnReset() {
   updateTopicUI();
 }
 
+function scrollToTopicInputArea() {
+  const target = document.getElementById('topicSelectSection') || document.getElementById('inputSection');
+  if (!target) return;
+  const header = document.querySelector('.header');
+  const headerHeight = header ? header.offsetHeight : 0;
+  const targetTop = window.scrollY + target.getBoundingClientRect().top;
+  const offset = Math.max(headerHeight + 8, 60);
+  window.scrollTo({
+    top: Math.max(targetTop - offset, 0),
+    behavior: 'smooth'
+  });
+}
+
 function renderFollowupCard() {
   const card = document.getElementById('followupTopicCard');
   const title = document.getElementById('followupTopicTitle');
@@ -383,7 +396,7 @@ function renderFollowupCard() {
       document.getElementById('inputSection').classList.remove('hidden');
       document.querySelector('.hero').classList.remove('hidden');
       showTopicSelectionOnReset();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      scrollToTopicInputArea();
     });
   });
 
