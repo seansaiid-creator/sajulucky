@@ -49,6 +49,27 @@
     gtag('js', new Date());
     gtag('config', 'G-CNX9P1EM18');
   </script>
+
+  <style>
+    .topic-select-btn{
+      margin:0 !important;
+      min-height:64px;
+      font-size:15px;
+      line-height:1.3;
+      padding:14px 10px !important;
+    }
+    .topic-select-btn.topic-active{
+      box-shadow:0 0 0 1px rgba(232,201,122,0.65), 0 8px 20px rgba(232,201,122,0.16);
+      transform:translateY(-1px);
+    }
+    @media (max-width:640px){
+      #fortuneTopicGrid,
+      #followupTopicLinks{
+        grid-template-columns:1fr !important;
+      }
+    }
+  </style>
+
 </head>
 <body>
 
@@ -156,6 +177,35 @@
     </section>
 
     <!-- ③ 상단 광고 제거 — 이미지로 대체 -->
+
+
+    <!-- 주제 선택 섹션 (기존 기능 유지 + 선택 흐름 추가) -->
+    <section class="input-section" id="topicSelectSection">
+      <div class="section-card">
+        <h2 class="section-title">
+          <span class="title-deco">✦</span>
+          먼저 궁금한 운세를 선택하세요
+          <span class="title-deco">✦</span>
+        </h2>
+        <p style="color:var(--text-sub); font-size:14px; line-height:1.9; text-align:center; margin-bottom:16px;">
+          지금 가장 궁금한 분야를 먼저 선택하면, 결과를 더 자연스럽게 읽고 이어서 관련 운세도 확인할 수 있습니다.
+        </p>
+
+        <div id="fortuneTopicGrid" style="display:grid; grid-template-columns:repeat(2,1fr); gap:10px;">
+          <button type="button" class="topic-select-btn cta-button" data-topic="today">오늘의 운세</button>
+          <button type="button" class="topic-select-btn cta-button" data-topic="love">연애운</button>
+          <button type="button" class="topic-select-btn cta-button" data-topic="money">금전운</button>
+          <button type="button" class="topic-select-btn cta-button" data-topic="career">직업운</button>
+          <button type="button" class="topic-select-btn cta-button" data-topic="health">건강운</button>
+          <button type="button" class="topic-select-btn cta-button" data-topic="relationship">인간관계</button>
+        </div>
+
+        <p id="selectedTopicText" style="margin-top:14px; color:var(--text-sub); font-size:13px; line-height:1.8; text-align:center;">
+          선택한 주제: <strong style="color:var(--gold);">오늘의 운세</strong>
+        </p>
+      </div>
+    </section>
+
 
     <!-- 입력 섹션 -->
     <section class="input-section" id="inputSection">
@@ -315,42 +365,25 @@
         </div>
       </div>
 
+
+      <!-- 선택한 주제 기반 후속 추천 -->
+      <div class="result-card hidden" id="followupTopicCard">
+        <div class="card-header">
+          <span class="card-icon">✨</span>
+          <h3 class="card-title" id="followupTopicTitle">이어서 보면 좋은 운세</h3>
+        </div>
+        <p id="followupTopicDesc" style="color:var(--text-sub); font-size:14px; line-height:1.9; margin-bottom:14px;">
+          선택한 주제와 연결되는 다른 운세도 함께 확인해보세요.
+        </p>
+        <div id="followupTopicLinks" style="display:grid; grid-template-columns:repeat(2,1fr); gap:10px;"></div>
+      </div>
+
+
       <div class="reset-area">
         <button class="reset-btn" onclick="resetAll()">🔄 사주 다시 보기</button>
       </div>
 
     </section>
-    <!-- SEO 허브 섹션 (기존 기능/디자인 유지, 내부링크만 추가) -->
-    <section class="input-section">
-      <div class="section-card">
-        <h2 class="section-title">
-          <span class="title-deco">✦</span>
-          추천 운세 더 보기
-          <span class="title-deco">✦</span>
-        </h2>
-        <p style="color:var(--text-sub); font-size:14px; line-height:1.9; text-align:center; margin-bottom:16px;">
-          사주행운의 다양한 운세 페이지를 함께 확인해보세요. 연애운, 금전운, 직업운, 궁합, 오늘의 사주, 행운번호까지 한 번에 둘러볼 수 있습니다.
-        </p>
-
-        <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:10px;">
-          <a href="saju-love.html" class="cta-button" style="text-align:center;">연애운 보기</a>
-          <a href="saju-money.html" class="cta-button" style="text-align:center;">금전운 보기</a>
-          <a href="saju-career.html" class="cta-button" style="text-align:center;">직업운 보기</a>
-          <a href="saju-compatibility.html" class="cta-button" style="text-align:center;">궁합 보기</a>
-          <a href="saju-marriage.html" class="cta-button" style="text-align:center;">결혼운 보기</a>
-          <a href="saju-today.html" class="cta-button" style="text-align:center;">오늘의 사주</a>
-          <a href="saju-lucky-number.html" class="cta-button" style="text-align:center;">행운번호 보기</a>
-          <a href="saju-2026.html" class="cta-button" style="text-align:center;">2026 운세</a>
-          <a href="saju-birthday.html" class="cta-button" style="text-align:center;">생년월일 사주</a>
-          <a href="saju-five-elements.html" class="cta-button" style="text-align:center;">오행 설명</a>
-        </div>
-
-        <p style="margin-top:14px; color:var(--text-sub); font-size:13px; line-height:1.8; text-align:center;">
-          검색으로 들어온 페이지를 더 깊게 읽고 싶을 때, 위 운세 허브를 통해 관련 페이지로 자연스럽게 이동할 수 있습니다.
-        </p>
-      </div>
-    </section>
-
 
     <!-- ⑤ 안내 섹션 — 아이콘 왼쪽 + 텍스트 오른쪽 (가로 레이아웃) -->
     <section class="info-section">
@@ -400,5 +433,151 @@
           integrity="sha384-TiCUE00h649CAMonG018J2ujOgDKW/kVWlChEuu4jK2vxfAAD0eZxzCKakxg55G4"
           crossorigin="anonymous"></script>
   <script src="app.js"></script>
+
+  <script>
+    (function(){
+      const topicConfig = {
+        today: {
+          label: "오늘의 운세",
+          intro: "오늘의 흐름을 중심으로 결과를 읽어보세요.",
+          desc: "오늘의 운세를 먼저 보셨다면, 더 자세한 해석을 위해 아래 주제도 함께 확인해보는 것이 좋습니다.",
+          links: [
+            { text: "연애운도 보기", href: "saju-love.html" },
+            { text: "금전운도 보기", href: "saju-money.html" },
+            { text: "직업운도 보기", href: "saju-career.html" },
+            { text: "행운번호 보기", href: "saju-lucky-number.html" }
+          ]
+        },
+        love: {
+          label: "연애운",
+          intro: "연애운 중심으로 결과를 읽어보세요.",
+          desc: "연애운을 먼저 보셨다면, 관계 흐름을 더 입체적으로 보기 위해 아래 주제도 함께 확인해보세요.",
+          links: [
+            { text: "재회운 보러가기", href: "saju-reunion.html" },
+            { text: "궁합 보러가기", href: "saju-compatibility.html" },
+            { text: "결혼운 보러가기", href: "saju-marriage.html" },
+            { text: "새 인연운 보러가기", href: "saju-new-love.html" }
+          ]
+        },
+        money: {
+          label: "금전운",
+          intro: "금전운 중심으로 결과를 읽어보세요.",
+          desc: "금전운을 먼저 보셨다면, 돈의 흐름과 연결되는 아래 주제도 함께 확인해보세요.",
+          links: [
+            { text: "사업운 보러가기", href: "saju-business.html" },
+            { text: "부업운 보러가기", href: "saju-sidejob.html" },
+            { text: "계약운 보러가기", href: "saju-contract.html" },
+            { text: "재물복 보러가기", href: "saju-wealth-luck.html" }
+          ]
+        },
+        career: {
+          label: "직업운",
+          intro: "직업운 중심으로 결과를 읽어보세요.",
+          desc: "직업운을 먼저 보셨다면, 커리어 흐름을 더 구체적으로 보기 위해 아래 주제도 함께 확인해보세요.",
+          links: [
+            { text: "이직운 보러가기", href: "saju-job-change.html" },
+            { text: "승진운 보러가기", href: "saju-promotion.html" },
+            { text: "사업운 보러가기", href: "saju-business.html" },
+            { text: "공부운 보러가기", href: "saju-study.html" }
+          ]
+        },
+        health: {
+          label: "건강운",
+          intro: "건강운 중심으로 결과를 읽어보세요.",
+          desc: "건강운을 먼저 보셨다면, 생활 리듬과 주변 흐름까지 함께 보기 위해 아래 주제도 확인해보세요.",
+          links: [
+            { text: "가족운 보러가기", href: "saju-family.html" },
+            { text: "여행운 보러가기", href: "saju-travel.html" },
+            { text: "오늘의 사주 보기", href: "saju-today.html" },
+            { text: "오행 설명 보기", href: "saju-five-elements.html" }
+          ]
+        },
+        relationship: {
+          label: "인간관계",
+          intro: "인간관계 중심으로 결과를 읽어보세요.",
+          desc: "인간관계를 먼저 보셨다면, 사람 흐름과 연결되는 아래 주제도 함께 확인해보세요.",
+          links: [
+            { text: "대인운 보러가기", href: "saju-social-luck.html" },
+            { text: "궁합 보러가기", href: "saju-compatibility.html" },
+            { text: "연애운 보러가기", href: "saju-love.html" },
+            { text: "가족운 보러가기", href: "saju-family.html" }
+          ]
+        }
+      };
+
+      let selectedTopic = "today";
+
+      function updateTopicUI() {
+        document.querySelectorAll(".topic-select-btn").forEach((btn) => {
+          const active = btn.dataset.topic === selectedTopic;
+          btn.classList.toggle("topic-active", active);
+        });
+        const strong = document.querySelector("#selectedTopicText strong");
+        if (strong && topicConfig[selectedTopic]) {
+          strong.textContent = topicConfig[selectedTopic].label;
+        }
+      }
+
+      function renderFollowupCard() {
+        const card = document.getElementById("followupTopicCard");
+        const title = document.getElementById("followupTopicTitle");
+        const desc = document.getElementById("followupTopicDesc");
+        const links = document.getElementById("followupTopicLinks");
+        const cfg = topicConfig[selectedTopic] || topicConfig.today;
+        if (!card || !title || !desc || !links) return;
+
+        title.textContent = cfg.label + "을(를) 보셨다면 이어서 보면 좋은 운세";
+        desc.textContent = cfg.desc;
+        links.innerHTML = cfg.links.map((item) => (
+          '<a href="' + item.href + '" class="cta-button" style="text-align:center; text-decoration:none;">' + item.text + '</a>'
+        )).join("");
+        card.classList.remove("hidden");
+
+        const advice = document.getElementById("fortuneAdvice");
+        if (advice && cfg.intro && !advice.dataset.topicEnhanced) {
+          advice.innerHTML = '<p style="margin-top:10px; color:var(--gold); font-size:14px;">선택한 주제: ' + cfg.label + '</p>' + advice.innerHTML;
+          advice.dataset.topicEnhanced = "true";
+        }
+      }
+
+      function resetTopicEnhancement() {
+        const card = document.getElementById("followupTopicCard");
+        if (card) card.classList.add("hidden");
+        const advice = document.getElementById("fortuneAdvice");
+        if (advice && advice.dataset.topicEnhanced) {
+          // best-effort cleanup for injected line
+          advice.innerHTML = advice.innerHTML.replace(/^<p style="margin-top:10px; color:var\(--gold\); font-size:14px;">선택한 주제:[\s\S]*?<\/p>/, "");
+          delete advice.dataset.topicEnhanced;
+        }
+      }
+
+      document.querySelectorAll(".topic-select-btn").forEach((btn) => {
+        btn.addEventListener("click", function(){
+          selectedTopic = this.dataset.topic || "today";
+          updateTopicUI();
+        });
+      });
+
+      const originalStartFortune = window.startFortune;
+      if (typeof originalStartFortune === "function") {
+        window.startFortune = function() {
+          originalStartFortune.apply(this, arguments);
+          setTimeout(renderFollowupCard, 200);
+        };
+      }
+
+      const originalResetAll = window.resetAll;
+      if (typeof originalResetAll === "function") {
+        window.resetAll = function() {
+          resetTopicEnhancement();
+          return originalResetAll.apply(this, arguments);
+        };
+      }
+
+      document.addEventListener("DOMContentLoaded", updateTopicUI);
+      updateTopicUI();
+    })();
+  </script>
+
 </body>
 </html>
