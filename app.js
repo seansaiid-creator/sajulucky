@@ -16,9 +16,9 @@ document.addEventListener('DOMContentLoaded', function () {
     try { Kakao.init(KAKAO_APP_KEY); } catch(e) { console.warn('Kakao init 실패:', e); }
   }
 
-  // 년도 옵션 생성 (1930 ~ 2010)
+  // 년도 옵션 생성 (1930 ~ 2026)
   const yearSel = document.getElementById('birthYear');
-  for (let y = 2010; y >= 1930; y--) {
+  for (let y = 2026; y >= 1930; y--) {
     const opt = document.createElement('option');
     opt.value = y;
     opt.textContent = y;
@@ -49,6 +49,9 @@ document.addEventListener('DOMContentLoaded', function () {
   updateDays();
   document.getElementById('birthMonth').addEventListener('change', updateDays);
   yearSel.addEventListener('change', updateDays);
+
+  // 주제 선택 UI 초기화
+  initTopicSelection();
 });
 
 // ⚠️ Gemini API 키를 여기에 입력하세요
@@ -261,20 +264,28 @@ function labelFromScore(score) {
 // Gemini API 호출
 // ========================
 
-async function getFortuneFromGemini(saju, gender) {
+async function getFortuneFromGemini(saju, gender, topicKey = 'today') {
   const prompt = `당신은 전문 사주 운세 풀이사입니다. 아래 사주 정보를 바탕으로 오늘의 운세를 한국어로 작성해주세요.
 
 사주 정보:
+- 선택한 주제: ${(TOPIC_CONFIG[topicKey] || TOPIC_CONFIG.today).label}
+- 주제별 요청: ${(TOPIC_CONFIG[topicKey] || TOPIC_CONFIG.today).promptHint}
 - 일간(나의 기운): ${saju.ilgan}(${CHEONGAN_KO[saju.ilgan]}) - ${CHEONGAN_OHANG[saju.ilgan]}(${OHANG_KO[CHEONGAN_OHANG[saju.ilgan]]})의 기운
 - 띠: ${saju.ddi}띠
 - 성별: ${gender === 'male' ? '남성' : '여성'}
 - 오행 구성: 목${saju.ohangCount.목} 화${saju.ohangCount.화} 토${saju.ohangCount.토} 금${saju.ohangCount.금} 수${saju.ohangCount.수}
 - 오늘 날짜: ${new Date().toLocaleDateString('ko-KR')}
 
+중요 조건:
+- 반드시 선택한 주제를 문장 안에서 직접 언급하세요.
+- fortune은 최소 280자 이상, 4~6문장으로 작성하세요.
+- advice는 선택한 주제와 연결된 한 문장으로 작성하세요.
+- 따뜻하고 구체적으로 작성하세요.
+
 다음 JSON 형식으로만 답하세요 (다른 텍스트 없이):
 {
-  "fortune": "오늘의 전체 운세 내용 (3~4문장, 구체적이고 따뜻하게)",
-  "advice": "오늘의 조언 (1문장, 행운색/방향/음식 등 포함)"
+  "fortune": "선택한 주제가 직접 언급된 오늘의 운세 내용 (최소 280자 이상)",
+  "advice": "선택한 주제와 연결된 오늘의 조언 (1문장)"
 }`;
 
   const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
@@ -282,7 +293,7 @@ async function getFortuneFromGemini(saju, gender) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       contents: [{ parts: [{ text: prompt }] }],
-      generationConfig: { temperature: 0.8, maxOutputTokens: 400 }
+      generationConfig: { temperature: 0.85, maxOutputTokens: 900 }
     })
   });
 
@@ -297,8 +308,85 @@ async function getFortuneFromGemini(saju, gender) {
 // 상태 관리
 // ========================
 
+const TOPIC_CONFIG = {
+  today: {
+    label: '오늘의 운세',
+    title: '오늘의 사주',
+    promptHint: '전체 운세를 중심으로 오늘의 흐름, 금전/애정/건강/직업 전반을 균형 있게 설명하세요.',
+    desc: '오늘의 운세를 보셨다면, 더 자세한 흐름을 위해 아래 주제도 함께 확인해보세요.',
+    links: [
+      { text: '연애운 보기', href: 'saju-love.html' },
+      { text: '금전운 보기', href: 'saju-money.html' },
+      { text: '직업운 보기', href: 'saju-career.html' },
+      { text: '행운번호 보기', href: 'saju-lucky-number.html' }
+    ]
+  },
+  love: {
+    label: '연애운',
+    title: '연애운 사주 풀이',
+    promptHint: '연애운을 중심으로 감정 흐름, 대화의 분위기, 관계 진전 가능성, 썸/연인/재회 관점의 조언을 포함해 설명하세요.',
+    desc: '연애운을 보셨다면, 관계 흐름을 더 입체적으로 보기 위해 아래 운세도 함께 확인해보세요.',
+    links: [
+      { text: '재회운 보기', href: 'saju-reunion.html' },
+      { text: '궁합 보기', href: 'saju-compatibility.html' },
+      { text: '결혼운 보기', href: 'saju-marriage.html' },
+      { text: '새 인연운 보기', href: 'saju-new-love.html' }
+    ]
+  },
+  money: {
+    label: '금전운',
+    title: '금전운 사주 풀이',
+    promptHint: '금전운을 중심으로 재물 흐름, 지출 관리, 수입 기회, 계약/소비/저축 관련 조언을 포함해 설명하세요.',
+    desc: '금전운을 보셨다면, 돈의 흐름과 연결되는 아래 운세도 함께 확인해보세요.',
+    links: [
+      { text: '사업운 보기', href: 'saju-business.html' },
+      { text: '부업운 보기', href: 'saju-sidejob.html' },
+      { text: '계약운 보기', href: 'saju-contract.html' },
+      { text: '재물복 보기', href: 'saju-wealth-luck.html' }
+    ]
+  },
+  career: {
+    label: '직업운',
+    title: '직업운 사주 풀이',
+    promptHint: '직업운을 중심으로 업무 흐름, 집중력, 평가, 이직/승진 가능성, 커리어 조언을 포함해 설명하세요.',
+    desc: '직업운을 보셨다면, 커리어 흐름을 더 구체적으로 보기 위해 아래 운세도 함께 확인해보세요.',
+    links: [
+      { text: '이직운 보기', href: 'saju-job-change.html' },
+      { text: '승진운 보기', href: 'saju-promotion.html' },
+      { text: '사업운 보기', href: 'saju-business.html' },
+      { text: '공부운 보기', href: 'saju-study.html' }
+    ]
+  },
+  health: {
+    label: '건강운',
+    title: '건강운 사주 풀이',
+    promptHint: '건강운을 중심으로 컨디션 흐름, 피로 관리, 생활 리듬, 휴식 포인트를 부드럽게 설명하세요. 진단처럼 쓰지 마세요.',
+    desc: '건강운을 보셨다면, 생활 리듬과 주변 흐름까지 함께 보기 위해 아래 운세도 확인해보세요.',
+    links: [
+      { text: '가족운 보기', href: 'saju-family.html' },
+      { text: '여행운 보기', href: 'saju-travel.html' },
+      { text: '오늘의 사주 보기', href: 'saju-today.html' },
+      { text: '오행 설명 보기', href: 'saju-five-elements.html' }
+    ]
+  },
+  relationship: {
+    label: '인간관계',
+    title: '인간관계 사주 풀이',
+    promptHint: '인간관계를 중심으로 대인관계 흐름, 소통 분위기, 오해 가능성, 인간관계에서의 조언을 포함해 설명하세요.',
+    desc: '인간관계를 보셨다면, 사람 흐름과 연결되는 아래 운세도 함께 확인해보세요.',
+    links: [
+      { text: '대인운 보기', href: 'saju-social-luck.html' },
+      { text: '궁합 보기', href: 'saju-compatibility.html' },
+      { text: '연애운 보기', href: 'saju-love.html' },
+      { text: '가족운 보기', href: 'saju-family.html' }
+    ]
+  }
+};
+
 let selectedGender = null;
 let currentNumbers = [];
+let selectedTopic = 'today';
+
 
 function selectGender(g) {
   selectedGender = g;
@@ -306,6 +394,68 @@ function selectGender(g) {
     btn.classList.toggle('selected', btn.dataset.gender === g);
   });
 }
+
+function initTopicSelection() {
+  const buttons = document.querySelectorAll('.topic-select-btn');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', function () {
+      selectedTopic = this.dataset.topic || 'today';
+      updateTopicUI();
+    });
+  });
+  updateTopicUI();
+}
+
+function updateTopicUI() {
+  document.querySelectorAll('.topic-select-btn').forEach(btn => {
+    btn.classList.toggle('topic-active', btn.dataset.topic === selectedTopic);
+  });
+}
+
+function hideTopicSelectionOnResult() {
+  const topicSection = document.getElementById('topicSelectSection');
+  if (topicSection) topicSection.classList.add('hidden');
+}
+
+function showTopicSelectionOnReset() {
+  const topicSection = document.getElementById('topicSelectSection');
+  if (topicSection) topicSection.classList.remove('hidden');
+  updateTopicUI();
+}
+
+function renderFollowupCard() {
+  const card = document.getElementById('followupTopicCard');
+  const title = document.getElementById('followupTopicTitle');
+  const desc = document.getElementById('followupTopicDesc');
+  const links = document.getElementById('followupTopicLinks');
+  const cfg = TOPIC_CONFIG[selectedTopic] || TOPIC_CONFIG.today;
+  if (!card || !title || !desc || !links) return;
+
+  title.textContent = `${cfg.label}을(를) 보셨다면 이어서 보면 좋은 운세`;
+  desc.textContent = cfg.desc;
+  links.innerHTML = cfg.links.map(item => (
+    `<a href="${item.href}" class="topic-follow-link">${item.text}</a>`
+  )).join('');
+  card.classList.remove('hidden');
+}
+
+function ensureLongFortuneText(text) {
+  const clean = (text || '').trim();
+  const cfg = TOPIC_CONFIG[selectedTopic] || TOPIC_CONFIG.today;
+  if (clean.length >= 260) return clean;
+
+  const extraMap = {
+    today: ' 오늘은 전체적인 흐름을 넓게 보되, 중요한 결정을 서두르기보다는 상황을 한 번 더 점검하는 태도가 도움이 됩니다. 작은 선택에서도 차분함을 유지하면 하루의 만족도가 높아질 수 있습니다.',
+    love: ' 특히 연애운 관점에서는 감정 표현의 속도와 말의 분위기가 중요합니다. 상대의 반응을 조급하게 해석하기보다, 자연스러운 흐름을 유지하는 태도가 관계 안정에 도움이 됩니다.',
+    money: ' 특히 금전운 관점에서는 충동적인 지출이나 성급한 판단을 줄이고, 들어오는 기회와 나가는 비용을 함께 점검하는 태도가 중요합니다. 오늘은 실속 있는 선택이 더 큰 만족으로 이어질 수 있습니다.',
+    career: ' 특히 직업운 관점에서는 결과보다 과정의 정돈이 중요합니다. 업무 우선순위를 분명히 하고, 작은 실수를 줄이는 데 집중하면 전체 흐름이 훨씬 안정적으로 이어질 수 있습니다.',
+    health: ' 특히 건강운 관점에서는 무리해서 끌고 가기보다 휴식과 리듬을 조절하는 것이 중요합니다. 컨디션을 세심하게 살피고 일상의 속도를 조절하면 더 안정적인 흐름을 만들 수 있습니다.',
+    relationship: ' 특히 인간관계 관점에서는 말의 강도와 거리 조절이 중요합니다. 가볍게 넘길 수 있는 일은 부드럽게 넘기고, 중요한 관계일수록 한 템포 여유 있게 반응하는 편이 좋습니다.'
+  };
+
+  return clean + (extraMap[selectedTopic] || extraMap.today);
+}
+
 
 // ========================
 // 메인 실행
@@ -326,6 +476,7 @@ async function startFortune() {
   // 섹션 전환 — 히어로/입력 숨기고 결과 바로 표시
   document.getElementById('inputSection').classList.add('hidden');
   document.querySelector('.hero').classList.add('hidden');   // ④ 히어로 숨김
+  hideTopicSelectionOnResult();
 
   // 사주 계산
   const saju = getSaju(year, month, day, hour || null);
@@ -334,17 +485,23 @@ async function startFortune() {
   let fortune;
   try {
     if (GEMINI_API_KEY && GEMINI_API_KEY !== 'YOUR_GEMINI_API_KEY_HERE') {
-      fortune = await getFortuneFromGemini(saju, selectedGender);
+      fortune = await getFortuneFromGemini(saju, selectedGender, selectedTopic);
     } else {
       // 템플릿 폴백
       const tpl = getFortuneTemplate(saju, selectedGender);
-      fortune = { fortune: tpl.text, advice: tpl.advice };
+      fortune = {
+        fortune: `${(TOPIC_CONFIG[selectedTopic] || TOPIC_CONFIG.today).label}을 중심으로 보면 ${tpl.text}`,
+        advice: tpl.advice
+      };
     }
   } catch (e) {
     console.warn('Gemini API 실패, 템플릿 사용:', e);
     const tpl = getFortuneTemplate(saju, selectedGender);
     fortune = { fortune: tpl.text, advice: tpl.advice };
   }
+
+  // 결과 텍스트 보강
+  fortune.fortune = ensureLongFortuneText(fortune.fortune);
 
   // 행운번호 생성
   currentNumbers = generateLuckyNumbers(saju, selectedGender);
@@ -353,6 +510,7 @@ async function startFortune() {
   document.getElementById('resultSection').classList.remove('hidden');
 
   renderResult(saju, fortune, currentNumbers);
+  renderFollowupCard();
   document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth' });
 }
 
@@ -361,10 +519,14 @@ async function startFortune() {
 // ========================
 
 function renderResult(saju, fortune, numbers) {
+  const cfg = TOPIC_CONFIG[selectedTopic] || TOPIC_CONFIG.today;
   // 오늘 날짜
   const today = new Date();
   document.getElementById('todayDate').textContent =
     `${today.getFullYear()}년 ${today.getMonth()+1}월 ${today.getDate()}일`;
+
+  const titleEl = document.getElementById('fortuneCardTitle');
+  if (titleEl) titleEl.textContent = cfg.title;
 
   // 사주 기둥
   const pillarsEl = document.getElementById('sajuPillars');
@@ -398,7 +560,8 @@ function renderResult(saju, fortune, numbers) {
   `).join('');
 
   // 운세 텍스트
-  document.getElementById('fortuneText').textContent = fortune.fortune;
+  const topicIntro = `선택한 주제: ${cfg.label}\n\n`;
+  document.getElementById('fortuneText').textContent = topicIntro + fortune.fortune;
   document.getElementById('fortuneAdvice').textContent = fortune.advice;
 
   // 행운 번호
@@ -428,6 +591,10 @@ function resetAll() {
   document.getElementById('resultSection').classList.add('hidden');
   document.getElementById('inputSection').classList.remove('hidden');
   document.querySelector('.hero').classList.remove('hidden'); // ④ 히어로 복구
+  showTopicSelectionOnReset();
+
+  const followCard = document.getElementById('followupTopicCard');
+  if (followCard) followCard.classList.add('hidden');
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }

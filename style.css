@@ -808,8 +808,15 @@ body {
 }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
+/* ===== 주제 선택 UI ===== */
+.topic-select-desc {
+  color: var(--text-sub);
+  font-size: 14px;
+  line-height: 1.9;
+  text-align: center;
+  margin-bottom: 16px;
+}
 
-/* ===== 주제 선택 UI 개선 ===== */
 .fortune-topic-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -818,8 +825,8 @@ body {
 
 .topic-select-btn {
   width: 100%;
-  min-height: 54px;
-  padding: 12px 10px;
+  min-height: 52px;
+  padding: 10px 8px;
   border-radius: 14px;
   border: 1px solid var(--border);
   background: rgba(255,255,255,0.03);
@@ -843,7 +850,10 @@ body {
 
 .ad-container-inline { margin: 12px 0 14px; }
 
-.followup-topic-card { margin-top: 14px; }
+.followup-topic-card {
+  margin-top: 16px;
+  padding: 16px 14px;
+}
 
 .followup-topic-desc {
   color: var(--text-sub);
@@ -862,7 +872,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 44px;
+  min-height: 42px;
   padding: 8px 6px;
   border-radius: 14px;
   text-decoration: none;
@@ -889,14 +899,14 @@ body {
   }
 
   .topic-select-btn {
-    min-height: 50px;
+    min-height: 48px;
     font-size: 13px;
-    padding: 10px 8px;
+    padding: 9px 6px;
   }
 
   .topic-follow-link {
-    min-height: 42px;
-    font-size: 12px;
-    padding: 8px 6px;
+    min-height: 40px;
+    font-size: 11px;
+    padding: 7px 5px;
   }
 }
