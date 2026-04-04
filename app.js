@@ -50,7 +50,6 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('birthMonth').addEventListener('change', updateDays);
   yearSel.addEventListener('change', updateDays);
 
-  // 주제 선택 UI 초기화
   initTopicSelection();
 });
 
@@ -370,15 +369,21 @@ function renderFollowupCard() {
   if (!card || !title || !desc || !links) return;
 
   const otherTopics = Object.entries(TOPIC_CONFIG).filter(([key]) => key !== selectedTopic);
-  title.textContent = `${cfg.label}을(를) 보셨다면 다른 주제도 이어서 확인해보세요`;
-  desc.textContent = '생년월일과 태어난 시간은 그대로 유지한 채, 다른 주제의 사주 풀이를 바로 다시 볼 수 있습니다.';
-  links.innerHTML = otherTopics.map(([key, item]) => `<button type="button" class="topic-follow-link" data-topic="${key}">${item.label}</button>`).join('');
+  title.textContent = `${cfg.label}을(를) 보셨다면 다른 주제로 다시 볼 수 있습니다`;
+  desc.textContent = '입력했던 생년월일, 성별, 태어난 시간은 그대로 유지한 채 첫 화면으로 돌아갑니다.';
+  links.innerHTML = otherTopics.map(([key, item]) => `<button type="button" class="topic-follow-link" data-topic="${key}">${item.label}으로 다시 보기</button>`).join('');
 
   links.querySelectorAll('.topic-follow-link').forEach(btn => {
-    btn.addEventListener('click', async function () {
+    btn.addEventListener('click', function () {
       selectedTopic = this.dataset.topic || 'today';
       updateTopicUI();
-      await startFortune(true);
+      const followCard = document.getElementById('followupTopicCard');
+      if (followCard) followCard.classList.add('hidden');
+      document.getElementById('resultSection').classList.add('hidden');
+      document.getElementById('inputSection').classList.remove('hidden');
+      document.querySelector('.hero').classList.remove('hidden');
+      showTopicSelectionOnReset();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
 
@@ -405,7 +410,7 @@ function ensureLongFortuneText(text) {
 // 메인 실행
 // ========================
 
-async function startFortune(isRerender = false) {
+async function startFortune() {
   const year  = parseInt(document.getElementById('birthYear').value);
   const month = parseInt(document.getElementById('birthMonth').value);
   const day   = parseInt(document.getElementById('birthDay').value);
@@ -451,7 +456,7 @@ async function startFortune(isRerender = false) {
 
   renderResult(saju, fortune, currentNumbers);
   renderFollowupCard();
-  if (!isRerender) document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth' });
+  document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth' });
 }
 
 // ========================
