@@ -49,6 +49,55 @@
     gtag('js', new Date());
     gtag('config', 'G-CNX9P1EM18');
   </script>
+
+  <style>
+    /* 추가: 입력 완료 시 CTA 강조 */
+    .cta-button.cta-ready {
+      position: relative;
+      box-shadow: 0 0 0 rgba(232,201,122,0);
+      animation: ctaReadyPulse 1.15s ease-in-out infinite;
+    }
+
+    .cta-button.cta-ready::after {
+      content: "눌러서 결과 보기";
+      position: absolute;
+      top: -10px;
+      right: 10px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(232,201,122,0.16);
+      border: 1px solid rgba(232,201,122,0.35);
+      color: var(--gold-light);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    @keyframes ctaReadyPulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(232,201,122,0.00), 0 0 0 rgba(232,201,122,0.00);
+        filter: brightness(1);
+      }
+      50% {
+        transform: scale(1.02);
+        box-shadow: 0 0 0 6px rgba(232,201,122,0.08), 0 0 20px rgba(232,201,122,0.28);
+        filter: brightness(1.05);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .cta-button.cta-ready::after {
+        top: -8px;
+        right: 8px;
+        font-size: 9px;
+        padding: 2px 7px;
+      }
+    }
+  </style>
+
 </head>
 <body>
 
@@ -73,9 +122,9 @@
         <span class="logo-text">사주행운</span>
       </a>
       <nav class="nav">
-        <a href="saju-guide.html" class="nav-link active">사주 이해하기</a>
+        <a href="index.html" class="nav-link active">운세보기</a>
         <a href="guide.html" class="nav-link">이용안내</a>
-        
+        <a href="about.html" class="nav-link">소개</a>
       </nav>
     </div>
   </header>
@@ -267,7 +316,7 @@
           </select>
         </div>
 
-        <button class="cta-button" onclick="startFortune()">
+        <button id="startFortuneBtn" class="cta-button" onclick="startFortune()">
           <span class="cta-icon">🔯</span>
           오늘의 운세 · 행운번호 보기
         </button>
@@ -408,5 +457,70 @@
           integrity="sha384-TiCUE00h649CAMonG018J2ujOgDKW/kVWlChEuu4jK2vxfAAD0eZxzCKakxg55G4"
           crossorigin="anonymous"></script>
   <script src="app.js"></script>
+
+  <script>
+    (function () {
+      function initCtaGuide() {
+        var startBtn = document.getElementById('startFortuneBtn');
+        var year = document.getElementById('birthYear');
+        var month = document.getElementById('birthMonth');
+        var day = document.getElementById('birthDay');
+        var topicGrid = document.getElementById('fortuneTopicGrid');
+
+        if (!startBtn || !year || !month || !day) return;
+
+        function isGenderSelected() {
+          return !!document.querySelector('.gender-btn.selected');
+        }
+
+        function isTopicSelected() {
+          return !!document.querySelector('.topic-select-btn.topic-active');
+        }
+
+        function hasRequiredInfo() {
+          return year.value && month.value && day.value && isGenderSelected() && isTopicSelected();
+        }
+
+        function updateCtaState() {
+          if (hasRequiredInfo()) {
+            startBtn.classList.add('cta-ready');
+          } else {
+            startBtn.classList.remove('cta-ready');
+          }
+        }
+
+        year.addEventListener('change', updateCtaState);
+        month.addEventListener('change', updateCtaState);
+        day.addEventListener('change', updateCtaState);
+
+        document.querySelectorAll('.gender-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            setTimeout(updateCtaState, 30);
+          });
+        });
+
+        if (topicGrid) {
+          topicGrid.addEventListener('click', function () {
+            setTimeout(updateCtaState, 30);
+          });
+        }
+
+        var observer = new MutationObserver(updateCtaState);
+        document.querySelectorAll('.gender-btn, .topic-select-btn').forEach(function (el) {
+          observer.observe(el, { attributes: true, attributeFilter: ['class'] });
+        });
+
+        setTimeout(updateCtaState, 150);
+        setTimeout(updateCtaState, 500);
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCtaGuide);
+      } else {
+        initCtaGuide();
+      }
+    })();
+  </script>
+
 </body>
 </html>
