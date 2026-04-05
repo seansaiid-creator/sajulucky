@@ -1,218 +1,67 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>무료 사주 금전운 보기 | 재물운 흐름과 돈 관리 팁 | 사주행운</title>
-  <meta name="description" content="오늘의 금전운과 재물 흐름을 사주로 확인해보세요. 소비, 저축, 기회 포인트를 무료로 간단하게 살펴볼 수 있습니다." />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://sajulucky.vercel.app/saju-money.html" />
-  <meta property="og:title" content="무료 사주 금전운 보기 | 재물운 흐름과 돈 관리 팁 | 사주행운" />
-  <meta property="og:description" content="오늘의 금전운과 재물 흐름을 사주로 확인해보세요. 소비, 저축, 기회 포인트를 무료로 간단하게 살펴볼 수 있습니다." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://sajulucky.vercel.app/saju-money.html" />
-  <meta property="og:locale" content="ko_KR" />
-  <meta property="og:site_name" content="사주행운" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="무료 사주 금전운 보기 | 재물운 흐름과 돈 관리 팁 | 사주행운" />
-  <meta name="twitter:description" content="오늘의 금전운과 재물 흐름을 사주로 확인해보세요. 소비, 저축, 기회 포인트를 무료로 간단하게 살펴볼 수 있습니다." />
-  <meta name="naver-site-verification" content="672426f975e750045e6d27c9b8cb8b0413c75405" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "사주행운", "item": "https://sajulucky.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "무료 사주 금전운 보기 | 재물운 흐름과 돈 관리 팁", "item": "https://sajulucky.vercel.app/saju-money.html"}]}</script>
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "사주 금전운은 투자 판단에 써도 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "오락과 참고 목적에 가깝습니다. 실제 투자 판단은 별도의 정보와 분석을 함께 검토하는 것이 안전합니다."}}, {"@type": "Question", "name": "금전운이 나쁘게 나오면 돈이 꼭 나가나요?", "acceptedAnswer": {"@type": "Answer", "text": "반드시 그렇지는 않습니다. 다만 불필요한 지출이나 성급한 판단을 줄이라는 신호로 받아들이는 편이 좋습니다."}}, {"@type": "Question", "name": "재물운은 어떻게 올릴 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "결과를 행동 기준으로 바꾸는 것이 중요합니다. 지출 통제, 일정 관리, 계약 검토 같은 현실적인 습관이 함께 가야 합니다."}}]}</script>
-  <style>
-    .seo-hero-visual{
-      display:flex; justify-content:center; align-items:center;
-      margin:20px auto 8px; width:100%; max-width:320px; min-height:160px;
-      border-radius:20px; background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-      border:1px solid rgba(255,255,255,0.08); box-shadow:0 8px 28px rgba(0,0,0,0.25);
-      position:relative; overflow:hidden;
-    }
-    .seo-hero-visual::before{
-      content:""; position:absolute; width:180px; height:180px; border-radius:50%;
-      background:radial-gradient(circle, rgba(232,201,122,0.20), rgba(232,201,122,0.02) 70%);
-      top:-30px; left:calc(50% - 90px);
-    }
-    .seo-hero-symbol{ font-size:54px; line-height:1; position:relative; z-index:2; filter:drop-shadow(0 4px 10px rgba(232,201,122,0.18)); }
-    .seo-summary-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:14px; }
-    .seo-mini-card{ border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.03); border-radius:16px; padding:14px 12px; }
-    .seo-mini-title{ font-size:13px; color:var(--gold); margin-bottom:6px; font-weight:700; }
-    .seo-mini-text{ font-size:13px; color:var(--text-sub); line-height:1.75; }
-    .seo-flow{ display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:14px; }
-    .seo-chip{ padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,0.10); background:rgba(255,255,255,0.04); color:var(--text-sub); font-size:13px; text-decoration:none; }
-    .seo-cta-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:14px; }
-    .seo-link-card{ display:block; text-decoration:none; border-radius:16px; padding:14px 12px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); transition:transform .15s ease, border-color .15s ease; }
-    .seo-link-card:hover{ transform:translateY(-1px); border-color:rgba(232,201,122,0.28); }
-    .seo-link-title{ color:var(--gold); font-size:14px; font-weight:700; margin-bottom:4px; }
-    .seo-link-text{ color:var(--text-sub); font-size:12px; line-height:1.6; }
-    .seo-note{ font-size:13px; color:var(--text-sub); line-height:1.85; }
-    .seo-full-btn{ display:block; text-align:center; text-decoration:none; }
-    @media (max-width: 640px){
-      .seo-summary-grid, .seo-cta-grid{ grid-template-columns:1fr; }
-      .seo-hero-visual{ min-height:140px; max-width:100%; }
-      .seo-hero-symbol{ font-size:46px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>금전운 | 사주행운</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="bg-decoration">
-    <div class="star" style="--x:10%;--y:15%;--s:3px;--d:0s"></div>
-    <div class="star" style="--x:25%;--y:8%;--s:2px;--d:0.5s"></div>
-    <div class="star" style="--x:40%;--y:20%;--s:4px;--d:1s"></div>
-    <div class="star" style="--x:60%;--y:5%;--s:2px;--d:1.5s"></div>
-    <div class="star" style="--x:75%;--y:18%;--s:3px;--d:0.8s"></div>
-    <div class="star" style="--x:88%;--y:10%;--s:2px;--d:0.3s"></div>
-    <div class="moon-deco">☽</div>
-  </div>
 
-  <header class="header">
-    <div class="header-inner">
-      <a href="index.html" class="logo">
-        <span class="logo-icon">🔯</span>
-        <span class="logo-text">사주행운</span>
-      </a>
-      <nav class="nav">
-        <a href="index.html" class="nav-link">운세보기</a>
-        <a href="guide.html" class="nav-link">이용안내</a>
-        <a href="about.html" class="nav-link">소개</a>
-      </nav>
-    </div>
-  </header>
+<header class="header">
+<div class="header-inner">
+<a href="index.html" class="logo">🔯 사주행운</a>
+</div>
+</header>
 
-  <main class="main">
-    <section class="hero">
-      <div class="hero-badge">✦ 무료 사주 운세 ✦</div>
-      <h1 class="hero-title">사주 금전운 무료 보기</h1>
-      <p class="hero-desc">금전운은 큰돈이 들어오는지 여부만 보는 것이 아니라, 지출이 새는 시기인지, 안정적으로 모이는 시기인지, 기회를 어떻게 다뤄야 하는지를 함께 보는 해석입니다.</p>
+<main class="main">
 
-      <div class="seo-hero-visual" aria-hidden="true">
-        <div class="seo-hero-symbol">💰</div>
-      </div>
+<section class="hero">
+<h1 class="hero-title">금전운 완벽 이해</h1>
+<p class="hero-desc">금전운의 흐름과 의미를 쉽게 이해할 수 있도록 정리했습니다.</p>
+</section>
 
-      <div class="seo-flow">
-        <span class="seo-chip">오늘의 흐름</span>
-        <span class="seo-chip">핵심 포인트</span>
-        <span class="seo-chip">상황별 해석</span>
-        <span class="seo-chip">관련 운세 연결</span>
-      </div>
-    </section>
+<section class="section-card">
+<h2 class="section-title">✦ 금전운이란 무엇인가?</h2>
+<p class="seo-note">
+금전운은 단순히 결과를 맞추는 개념이 아니라, 현재 상황의 흐름과 방향성을 이해하기 위한 기준입니다.
+사주에서는 타고난 기운과 현재 시기의 에너지를 함께 분석하여 어떤 선택이 더 유리한지 판단합니다.
+</p>
+<p class="seo-note">
+즉, 금전운은 "앞으로 어떻게 될까?"를 맞히기보다 "지금 무엇을 해야 하는가"를 알려주는 역할을 합니다.
+</p>
+</section>
 
-    <section class="section-card">
-      <h2 class="section-title">
-        <span class="title-deco">✦</span>
-        핵심 요약
-        <span class="title-deco">✦</span>
-      </h2>
-      <div class="seo-summary-grid">
-        <div class="seo-mini-card">
-          <div class="seo-mini-title">사주에서 금전운이 의미하는 것</div>
-          <div class="seo-mini-text">사주 금전운은 돈 자체만이 아니라 재물을 다루는 태도와 습관까지 포함합니다. 충동 소비가 늘어나는 시기, 계획적으로 모으기 좋은 시기, 투자보다는 보수적으로 가야 하는 시기처럼 돈의 흐름을 읽는 데 초점이 있습니다.</div>
-        </div>
-        <div class="seo-mini-card">
-          <div class="seo-mini-title">재물운이 좋을 때 체크할 것</div>
-          <div class="seo-mini-text">재물운이 좋다고 느껴지는 시기에는 수입의 기회가 생기거나, 업무 성과가 금전적 보상으로 이어질 가능성이 높아집니다. 하지만 그만큼 소비 유혹도 커질 수 있어, 들어오는 돈의 크기보다 남기는 구조를 만드는 것이 중요합니다.</div>
-        </div>
-        <div class="seo-mini-card">
-          <div class="seo-mini-title">오늘의 금전운을 실전적으로 쓰는 법</div>
-          <div class="seo-mini-text">사주행운의 오늘의 운세를 확인한 뒤, 지출 예정이 있는 날인지, 계약·구매·결정에 신중해야 하는 날인지를 먼저 구분하세요. &quot;오늘은 아끼는 날&quot;, &quot;오늘은 움직여도 되는 날&quot;처럼 하루의 행동 기준을 정하면 결과를 실제 생활과 연결하기 쉬워집니다.</div>
-        </div>
-        <div class="seo-mini-card">
-          <div class="seo-mini-title">수익형 사이트 관점에서 금전운 페이지의 가치</div>
-          <div class="seo-mini-text">금전운 키워드는 연애운과 함께 검색량과 확장성이 좋은 편입니다. 재물운, 돈복, 금전운 테스트, 오늘의 재물운 같은 하위 키워드로도 확장 가능해 향후 SEO 허브 페이지의 중심축이 될 수 있습니다.</div>
-        </div>
-      </div>
-    </section>
+<section class="section-card">
+<h2 class="section-title">✦ 사주에서 왜 중요한가?</h2>
+<p class="seo-note">
+사주는 오행(목, 화, 토, 금, 수)의 균형으로 흐름을 해석합니다.
+특정 기운이 강하거나 약할 때 금전운에 직접적인 영향을 미칠 수 있습니다.
+</p>
+<p class="seo-note">
+예를 들어 기운이 안정된 시기에는 결과가 자연스럽게 따라오고,
+불균형한 시기에는 노력 대비 결과가 부족하게 느껴질 수 있습니다.
+</p>
+</section>
 
-    <section class="section-card">
-      <h2 class="section-title">
-        <span class="title-deco">✦</span>
-        상세 해석
-        <span class="title-deco">✦</span>
-      </h2>
-      <p class="seo-note">사주 금전운은 돈 자체만이 아니라 재물을 다루는 태도와 습관까지 포함합니다. 충동 소비가 늘어나는 시기, 계획적으로 모으기 좋은 시기, 투자보다는 보수적으로 가야 하는 시기처럼 돈의 흐름을 읽는 데 초점이 있습니다.</p>
-      <p class="seo-note">재물운이 좋다고 느껴지는 시기에는 수입의 기회가 생기거나, 업무 성과가 금전적 보상으로 이어질 가능성이 높아집니다. 하지만 그만큼 소비 유혹도 커질 수 있어, 들어오는 돈의 크기보다 남기는 구조를 만드는 것이 중요합니다.</p>
-      <p class="seo-note">사주행운은 생년월일을 바탕으로 오늘의 운세와 행운번호를 간단하게 확인할 수 있는 무료 서비스입니다. 아래 설명을 읽은 뒤 실제 결과는 메인 서비스에서 바로 확인할 수 있습니다.</p>
-    </section>
+<section class="section-card">
+<h2 class="section-title">✦ 이렇게 활용하면 좋습니다</h2>
+<ul class="seo-note">
+<li>현재 상황을 객관적으로 판단하는 기준으로 활용</li>
+<li>무리한 선택보다 타이밍을 고려한 결정</li>
+<li>감정보다 흐름 중심으로 행동 조절</li>
+<li>중요한 결정 전에 참고 기준으로 사용</li>
+</ul>
+</section>
 
-    <section class="section-card">
-      <h2 class="section-title">
-        <span class="title-deco">✦</span>
-        관련 운세 더 보기
-        <span class="title-deco">✦</span>
-      </h2>
-      <div class="seo-cta-grid">
-        <a class="seo-link-card" href="saju-love.html">
-          <div class="seo-link-title">사주 연애운</div>
-          <div class="seo-link-text">관련 주제 흐름을 함께 확인해보세요.</div>
-        </a>
-        <a class="seo-link-card" href="saju-career.html">
-          <div class="seo-link-title">사주 직업운</div>
-          <div class="seo-link-text">관련 주제 흐름을 함께 확인해보세요.</div>
-        </a>
-        <a class="seo-link-card" href="saju-marriage.html">
-          <div class="seo-link-title">사주 결혼운</div>
-          <div class="seo-link-text">관련 주제 흐름을 함께 확인해보세요.</div>
-        </a>
-        <a class="seo-link-card" href="saju-compatibility.html">
-          <div class="seo-link-title">사주 궁합</div>
-          <div class="seo-link-text">관련 주제 흐름을 함께 확인해보세요.</div>
-        </a>
-      </div>
-      <div style="margin-top:16px;">
-        <a href="index.html" class="cta-button seo-full-btn">오늘의 운세 · 행운번호 바로 보기</a>
-      </div>
-    </section>
+<section class="section-card">
+<h2 class="section-title">✦ 지금 내 흐름 확인하기</h2>
+<p class="seo-note">
+지금 나의 금전운 흐름이 어떤 상태인지 직접 확인해보세요.
+</p>
+<a href="index.html" class="cta-button">👉 무료 사주 결과 보기</a>
+</section>
 
-    <section class="section-card">
-      <h2 class="section-title">
-        <span class="title-deco">✦</span>
-        함께 보면 좋은 페이지
-        <span class="title-deco">✦</span>
-      </h2>
-      <div class="seo-flow">
-<a href="saju-love.html" class="seo-chip">사주 연애운</a>
-<a href="saju-career.html" class="seo-chip">사주 직업운</a>
-<a href="saju-marriage.html" class="seo-chip">사주 결혼운</a>
-<a href="saju-compatibility.html" class="seo-chip">사주 궁합</a>
-<a href="saju-today.html" class="seo-chip">오늘의 사주</a>
-<a href="saju-lucky-number.html" class="seo-chip">사주 행운번호</a>
-<a href="saju-2026.html" class="seo-chip">2026 사주 운세</a>
-<a href="saju-birthday.html" class="seo-chip">생년월일 사주</a>
-      </div>
-    </section>
-
-    <section class="section-card">
-      <h2 class="section-title">
-        <span class="title-deco">✦</span>
-        자주 보는 질문
-        <span class="title-deco">✦</span>
-      </h2>
-      <div class="seo-summary-grid">
-        <div class="seo-mini-card">
-          <div class="seo-mini-title">사주 금전운은 투자 판단에 써도 되나요?</div>
-          <div class="seo-mini-text">오락과 참고 목적에 가깝습니다. 실제 투자 판단은 별도의 정보와 분석을 함께 검토하는 것이 안전합니다.</div>
-        </div>
-        <div class="seo-mini-card">
-          <div class="seo-mini-title">금전운이 나쁘게 나오면 돈이 꼭 나가나요?</div>
-          <div class="seo-mini-text">반드시 그렇지는 않습니다. 다만 불필요한 지출이나 성급한 판단을 줄이라는 신호로 받아들이는 편이 좋습니다.</div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <p class="footer-disclaimer">
-      사주행운은 재미와 흥미를 위한 서비스입니다<br/>
-      운세와 행운 번호는 오락 목적이며 결과를 보장하지 않습니다
-    </p>
-    <p class="footer-copyright">© 2026 사주행운</p>
-    <div class="footer-links">
-      <a href="privacy.html">개인정보처리방침</a>
-      <a href="terms.html">이용약관</a>
-      <a href="about.html">서비스 소개</a>
-    </div>
-  </footer>
+</main>
 </body>
 </html>

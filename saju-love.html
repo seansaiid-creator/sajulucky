@@ -1,218 +1,67 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>무료 사주 연애운 보기 | 오늘의 연애운과 인연 흐름 | 사주행운</title>
-  <meta name="description" content="생년월일을 바탕으로 오늘의 연애운, 감정 흐름, 인연의 타이밍을 확인해보세요. 사주행운에서 무료로 간단하게 볼 수 있습니다." />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://sajulucky.vercel.app/saju-love.html" />
-  <meta property="og:title" content="무료 사주 연애운 보기 | 오늘의 연애운과 인연 흐름 | 사주행운" />
-  <meta property="og:description" content="생년월일을 바탕으로 오늘의 연애운, 감정 흐름, 인연의 타이밍을 확인해보세요. 사주행운에서 무료로 간단하게 볼 수 있습니다." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://sajulucky.vercel.app/saju-love.html" />
-  <meta property="og:locale" content="ko_KR" />
-  <meta property="og:site_name" content="사주행운" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="무료 사주 연애운 보기 | 오늘의 연애운과 인연 흐름 | 사주행운" />
-  <meta name="twitter:description" content="생년월일을 바탕으로 오늘의 연애운, 감정 흐름, 인연의 타이밍을 확인해보세요. 사주행운에서 무료로 간단하게 볼 수 있습니다." />
-  <meta name="naver-site-verification" content="672426f975e750045e6d27c9b8cb8b0413c75405" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "사주행운", "item": "https://sajulucky.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "무료 사주 연애운 보기 | 오늘의 연애운과 인연 흐름", "item": "https://sajulucky.vercel.app/saju-love.html"}]}</script>
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "사주 연애운은 매일 바뀌나요?", "acceptedAnswer": {"@type": "Answer", "text": "매일의 흐름은 달라질 수 있습니다. 다만 기본 성향은 크게 바뀌지 않고, 그 위에 오늘의 기운이 얹히는 방식으로 보는 것이 자연스럽습니다."}}, {"@type": "Question", "name": "정확한 출생 시간이 없어도 볼 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "네. 태어난 시간이 없어도 기본적인 흐름은 볼 수 있습니다. 다만 시간이 있으면 시주까지 반영되어 해석이 더 촘촘해질 수 있습니다."}}, {"@type": "Question", "name": "연애운 결과는 확정인가요?", "acceptedAnswer": {"@type": "Answer", "text": "아닙니다. 사주 결과는 참고용 해석이며, 실제 관계의 방향은 선택과 행동에 따라 달라질 수 있습니다."}}]}</script>
-  <style>
-    .seo-hero-visual{
-      display:flex; justify-content:center; align-items:center;
-      margin:20px auto 8px; width:100%; max-width:320px; min-height:160px;
-      border-radius:20px; background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-      border:1px solid rgba(255,255,255,0.08); box-shadow:0 8px 28px rgba(0,0,0,0.25);
-      position:relative; overflow:hidden;
-    }
-    .seo-hero-visual::before{
-      content:""; position:absolute; width:180px; height:180px; border-radius:50%;
-      background:radial-gradient(circle, rgba(232,201,122,0.20), rgba(232,201,122,0.02) 70%);
-      top:-30px; left:calc(50% - 90px);
-    }
-    .seo-hero-symbol{ font-size:54px; line-height:1; position:relative; z-index:2; filter:drop-shadow(0 4px 10px rgba(232,201,122,0.18)); }
-    .seo-summary-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:14px; }
-    .seo-mini-card{ border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.03); border-radius:16px; padding:14px 12px; }
-    .seo-mini-title{ font-size:13px; color:var(--gold); margin-bottom:6px; font-weight:700; }
-    .seo-mini-text{ font-size:13px; color:var(--text-sub); line-height:1.75; }
-    .seo-flow{ display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:14px; }
-    .seo-chip{ padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,0.10); background:rgba(255,255,255,0.04); color:var(--text-sub); font-size:13px; text-decoration:none; }
-    .seo-cta-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:14px; }
-    .seo-link-card{ display:block; text-decoration:none; border-radius:16px; padding:14px 12px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); transition:transform .15s ease, border-color .15s ease; }
-    .seo-link-card:hover{ transform:translateY(-1px); border-color:rgba(232,201,122,0.28); }
-    .seo-link-title{ color:var(--gold); font-size:14px; font-weight:700; margin-bottom:4px; }
-    .seo-link-text{ color:var(--text-sub); font-size:12px; line-height:1.6; }
-    .seo-note{ font-size:13px; color:var(--text-sub); line-height:1.85; }
-    .seo-full-btn{ display:block; text-align:center; text-decoration:none; }
-    @media (max-width: 640px){
-      .seo-summary-grid, .seo-cta-grid{ grid-template-columns:1fr; }
-      .seo-hero-visual{ min-height:140px; max-width:100%; }
-      .seo-hero-symbol{ font-size:46px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>연애운 | 사주행운</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="bg-decoration">
-    <div class="star" style="--x:10%;--y:15%;--s:3px;--d:0s"></div>
-    <div class="star" style="--x:25%;--y:8%;--s:2px;--d:0.5s"></div>
-    <div class="star" style="--x:40%;--y:20%;--s:4px;--d:1s"></div>
-    <div class="star" style="--x:60%;--y:5%;--s:2px;--d:1.5s"></div>
-    <div class="star" style="--x:75%;--y:18%;--s:3px;--d:0.8s"></div>
-    <div class="star" style="--x:88%;--y:10%;--s:2px;--d:0.3s"></div>
-    <div class="moon-deco">☽</div>
-  </div>
 
-  <header class="header">
-    <div class="header-inner">
-      <a href="index.html" class="logo">
-        <span class="logo-icon">🔯</span>
-        <span class="logo-text">사주행운</span>
-      </a>
-      <nav class="nav">
-        <a href="index.html" class="nav-link">운세보기</a>
-        <a href="guide.html" class="nav-link">이용안내</a>
-        <a href="about.html" class="nav-link">소개</a>
-      </nav>
-    </div>
-  </header>
+<header class="header">
+<div class="header-inner">
+<a href="index.html" class="logo">🔯 사주행운</a>
+</div>
+</header>
 
-  <main class="main">
-    <section class="hero">
-      <div class="hero-badge">✦ 무료 사주 운세 ✦</div>
-      <h1 class="hero-title">사주 연애운 무료 보기</h1>
-      <p class="hero-desc">연애운은 감정의 흐름과 관계의 타이밍을 함께 보는 것이 핵심입니다. 사주에서는 일간의 성향, 오행의 균형, 시기의 흐름을 함께 보며 사람 사이의 거리감과 끌림의 강도를 해석합니다.</p>
+<main class="main">
 
-      <div class="seo-hero-visual" aria-hidden="true">
-        <div class="seo-hero-symbol">💞</div>
-      </div>
+<section class="hero">
+<h1 class="hero-title">연애운 완벽 이해</h1>
+<p class="hero-desc">연애운의 흐름과 의미를 쉽게 이해할 수 있도록 정리했습니다.</p>
+</section>
 
-      <div class="seo-flow">
-        <span class="seo-chip">오늘의 흐름</span>
-        <span class="seo-chip">핵심 포인트</span>
-        <span class="seo-chip">상황별 해석</span>
-        <span class="seo-chip">관련 운세 연결</span>
-      </div>
-    </section>
+<section class="section-card">
+<h2 class="section-title">✦ 연애운이란 무엇인가?</h2>
+<p class="seo-note">
+연애운은 단순히 결과를 맞추는 개념이 아니라, 현재 상황의 흐름과 방향성을 이해하기 위한 기준입니다.
+사주에서는 타고난 기운과 현재 시기의 에너지를 함께 분석하여 어떤 선택이 더 유리한지 판단합니다.
+</p>
+<p class="seo-note">
+즉, 연애운은 "앞으로 어떻게 될까?"를 맞히기보다 "지금 무엇을 해야 하는가"를 알려주는 역할을 합니다.
+</p>
+</section>
 
-    <section class="section-card">
-      <h2 class="section-title">
-        <span class="title-deco">✦</span>
-        핵심 요약
-        <span class="title-deco">✦</span>
-      </h2>
-      <div class="seo-summary-grid">
-        <div class="seo-mini-card">
-          <div class="seo-mini-title">사주 연애운은 무엇을 보나요?</div>
-          <div class="seo-mini-text">사주 연애운은 단순히 &quot;연애가 된다, 안 된다&quot;를 보는 것이 아닙니다. 자신의 감정 표현 방식, 상대를 받아들이는 태도, 관계가 깊어질 때의 속도, 갈등이 생길 때의 반응까지 함께 살펴보는 흐름형 해석입니다. 특히 목·화 기운이 강하면 표현과 추진이 빠른 편이고, 금·수 기운이 강하면 신중하고 관찰형인 경우가 많습니다.</div>
-        </div>
-        <div class="seo-mini-card">
-          <div class="seo-mini-title">연애운이 좋게 느껴지는 시기</div>
-          <div class="seo-mini-text">연애운이 좋다는 것은 새로운 인연이 잘 들어오거나, 기존 관계에서 감정의 소통이 부드러워지는 시기를 뜻합니다. 이런 시기에는 소개, 재회, 연락, 고백, 관계 진전 같은 이벤트가 자연스럽게 이어질 가능성이 높습니다. 다만 좋은 운도 행동이 함께 따라야 현실의 결과로 연결됩니다.</div>
-        </div>
-        <div class="seo-mini-card">
-          <div class="seo-mini-title">사주행운에서 연애운을 활용하는 방법</div>
-          <div class="seo-mini-text">입력 폼에서 생년월일과 성별, 태어난 시간을 가능한 범위에서 정확하게 입력한 뒤 오늘의 운세를 확인해보세요. 결과 문장을 읽을 때는 &quot;내가 지금 어떤 감정 패턴에 있는가&quot;를 중심으로 해석하는 것이 좋습니다. 감정이 조급한 날인지, 표현이 잘 통하는 날인지, 관찰이 필요한 날인지 체크하면 실제 연애 판단에 도움이 됩니다.</div>
-        </div>
-        <div class="seo-mini-card">
-          <div class="seo-mini-title">연애운 콘텐츠가 AdSense 승인에 도움이 되는 이유</div>
-          <div class="seo-mini-text">검색 사용자는 &quot;사주 연애운&quot;, &quot;무료 연애운&quot;, &quot;오늘의 연애운&quot;처럼 구체적인 키워드로 들어오는 경우가 많습니다. 이런 페이지는 메인 결과 페이지와 다른 독립적인 설명형 콘텐츠이기 때문에 사이트의 정보성을 보강하고, 방문자가 결과 확인 전후로 더 오래 머무르게 만드는 데 유리합니다.</div>
-        </div>
-      </div>
-    </section>
+<section class="section-card">
+<h2 class="section-title">✦ 사주에서 왜 중요한가?</h2>
+<p class="seo-note">
+사주는 오행(목, 화, 토, 금, 수)의 균형으로 흐름을 해석합니다.
+특정 기운이 강하거나 약할 때 연애운에 직접적인 영향을 미칠 수 있습니다.
+</p>
+<p class="seo-note">
+예를 들어 기운이 안정된 시기에는 결과가 자연스럽게 따라오고,
+불균형한 시기에는 노력 대비 결과가 부족하게 느껴질 수 있습니다.
+</p>
+</section>
 
-    <section class="section-card">
-      <h2 class="section-title">
-        <span class="title-deco">✦</span>
-        상세 해석
-        <span class="title-deco">✦</span>
-      </h2>
-      <p class="seo-note">사주 연애운은 단순히 &quot;연애가 된다, 안 된다&quot;를 보는 것이 아닙니다. 자신의 감정 표현 방식, 상대를 받아들이는 태도, 관계가 깊어질 때의 속도, 갈등이 생길 때의 반응까지 함께 살펴보는 흐름형 해석입니다. 특히 목·화 기운이 강하면 표현과 추진이 빠른 편이고, 금·수 기운이 강하면 신중하고 관찰형인 경우가 많습니다.</p>
-      <p class="seo-note">연애운이 좋다는 것은 새로운 인연이 잘 들어오거나, 기존 관계에서 감정의 소통이 부드러워지는 시기를 뜻합니다. 이런 시기에는 소개, 재회, 연락, 고백, 관계 진전 같은 이벤트가 자연스럽게 이어질 가능성이 높습니다. 다만 좋은 운도 행동이 함께 따라야 현실의 결과로 연결됩니다.</p>
-      <p class="seo-note">사주행운은 생년월일을 바탕으로 오늘의 운세와 행운번호를 간단하게 확인할 수 있는 무료 서비스입니다. 아래 설명을 읽은 뒤 실제 결과는 메인 서비스에서 바로 확인할 수 있습니다.</p>
-    </section>
+<section class="section-card">
+<h2 class="section-title">✦ 이렇게 활용하면 좋습니다</h2>
+<ul class="seo-note">
+<li>현재 상황을 객관적으로 판단하는 기준으로 활용</li>
+<li>무리한 선택보다 타이밍을 고려한 결정</li>
+<li>감정보다 흐름 중심으로 행동 조절</li>
+<li>중요한 결정 전에 참고 기준으로 사용</li>
+</ul>
+</section>
 
-    <section class="section-card">
-      <h2 class="section-title">
-        <span class="title-deco">✦</span>
-        관련 운세 더 보기
-        <span class="title-deco">✦</span>
-      </h2>
-      <div class="seo-cta-grid">
-        <a class="seo-link-card" href="saju-money.html">
-          <div class="seo-link-title">사주 금전운</div>
-          <div class="seo-link-text">관련 주제 흐름을 함께 확인해보세요.</div>
-        </a>
-        <a class="seo-link-card" href="saju-career.html">
-          <div class="seo-link-title">사주 직업운</div>
-          <div class="seo-link-text">관련 주제 흐름을 함께 확인해보세요.</div>
-        </a>
-        <a class="seo-link-card" href="saju-marriage.html">
-          <div class="seo-link-title">사주 결혼운</div>
-          <div class="seo-link-text">관련 주제 흐름을 함께 확인해보세요.</div>
-        </a>
-        <a class="seo-link-card" href="saju-compatibility.html">
-          <div class="seo-link-title">사주 궁합</div>
-          <div class="seo-link-text">관련 주제 흐름을 함께 확인해보세요.</div>
-        </a>
-      </div>
-      <div style="margin-top:16px;">
-        <a href="index.html" class="cta-button seo-full-btn">오늘의 운세 · 행운번호 바로 보기</a>
-      </div>
-    </section>
+<section class="section-card">
+<h2 class="section-title">✦ 지금 내 흐름 확인하기</h2>
+<p class="seo-note">
+지금 나의 연애운 흐름이 어떤 상태인지 직접 확인해보세요.
+</p>
+<a href="index.html" class="cta-button">👉 무료 사주 결과 보기</a>
+</section>
 
-    <section class="section-card">
-      <h2 class="section-title">
-        <span class="title-deco">✦</span>
-        함께 보면 좋은 페이지
-        <span class="title-deco">✦</span>
-      </h2>
-      <div class="seo-flow">
-<a href="saju-money.html" class="seo-chip">사주 금전운</a>
-<a href="saju-career.html" class="seo-chip">사주 직업운</a>
-<a href="saju-marriage.html" class="seo-chip">사주 결혼운</a>
-<a href="saju-compatibility.html" class="seo-chip">사주 궁합</a>
-<a href="saju-today.html" class="seo-chip">오늘의 사주</a>
-<a href="saju-lucky-number.html" class="seo-chip">사주 행운번호</a>
-<a href="saju-2026.html" class="seo-chip">2026 사주 운세</a>
-<a href="saju-birthday.html" class="seo-chip">생년월일 사주</a>
-      </div>
-    </section>
-
-    <section class="section-card">
-      <h2 class="section-title">
-        <span class="title-deco">✦</span>
-        자주 보는 질문
-        <span class="title-deco">✦</span>
-      </h2>
-      <div class="seo-summary-grid">
-        <div class="seo-mini-card">
-          <div class="seo-mini-title">사주 연애운은 매일 바뀌나요?</div>
-          <div class="seo-mini-text">매일의 흐름은 달라질 수 있습니다. 다만 기본 성향은 크게 바뀌지 않고, 그 위에 오늘의 기운이 얹히는 방식으로 보는 것이 자연스럽습니다.</div>
-        </div>
-        <div class="seo-mini-card">
-          <div class="seo-mini-title">정확한 출생 시간이 없어도 볼 수 있나요?</div>
-          <div class="seo-mini-text">네. 태어난 시간이 없어도 기본적인 흐름은 볼 수 있습니다. 다만 시간이 있으면 시주까지 반영되어 해석이 더 촘촘해질 수 있습니다.</div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <p class="footer-disclaimer">
-      사주행운은 재미와 흥미를 위한 서비스입니다<br/>
-      운세와 행운 번호는 오락 목적이며 결과를 보장하지 않습니다
-    </p>
-    <p class="footer-copyright">© 2026 사주행운</p>
-    <div class="footer-links">
-      <a href="privacy.html">개인정보처리방침</a>
-      <a href="terms.html">이용약관</a>
-      <a href="about.html">서비스 소개</a>
-    </div>
-  </footer>
+</main>
 </body>
 </html>

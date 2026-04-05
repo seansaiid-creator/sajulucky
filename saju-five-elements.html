@@ -1,218 +1,67 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>사주 오행 무료 설명 | 목화토금수와 운세 해석 | 사주행운</title>
-  <meta name="description" content="사주의 핵심인 오행, 목화토금수의 의미를 쉽게 설명합니다. 오행 균형과 운세 해석의 관계를 사주행운 스타일로 정리했습니다." />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://sajulucky.vercel.app/saju-five-elements.html" />
-  <meta property="og:title" content="사주 오행 무료 설명 | 목화토금수와 운세 해석 | 사주행운" />
-  <meta property="og:description" content="사주의 핵심인 오행, 목화토금수의 의미를 쉽게 설명합니다. 오행 균형과 운세 해석의 관계를 사주행운 스타일로 정리했습니다." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://sajulucky.vercel.app/saju-five-elements.html" />
-  <meta property="og:locale" content="ko_KR" />
-  <meta property="og:site_name" content="사주행운" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="사주 오행 무료 설명 | 목화토금수와 운세 해석 | 사주행운" />
-  <meta name="twitter:description" content="사주의 핵심인 오행, 목화토금수의 의미를 쉽게 설명합니다. 오행 균형과 운세 해석의 관계를 사주행운 스타일로 정리했습니다." />
-  <meta name="naver-site-verification" content="672426f975e750045e6d27c9b8cb8b0413c75405" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "사주행운", "item": "https://sajulucky.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "사주 오행 무료 설명 | 목화토금수와 운세 해석", "item": "https://sajulucky.vercel.app/saju-five-elements.html"}]}</script>
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "오행이 많거나 적으면 좋은 건가요?", "acceptedAnswer": {"@type": "Answer", "text": "무조건 많고 적음으로 판단하기보다, 균형과 전체 조합을 함께 보는 것이 중요합니다."}}, {"@type": "Question", "name": "오행 설명만으로 내 사주를 알 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "기본 이해에는 도움이 되지만, 개인 결과는 생년월일 정보를 바탕으로 별도로 확인하는 것이 좋습니다."}}, {"@type": "Question", "name": "왜 오행 페이지가 필요한가요?", "acceptedAnswer": {"@type": "Answer", "text": "서비스의 전문성과 정보성을 높여주고, 주제형 페이지를 연결하는 중심 허브가 되기 때문입니다."}}]}</script>
-  <style>
-    .seo-hero-visual{
-      display:flex; justify-content:center; align-items:center;
-      margin:20px auto 8px; width:100%; max-width:320px; min-height:160px;
-      border-radius:20px; background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-      border:1px solid rgba(255,255,255,0.08); box-shadow:0 8px 28px rgba(0,0,0,0.25);
-      position:relative; overflow:hidden;
-    }
-    .seo-hero-visual::before{
-      content:""; position:absolute; width:180px; height:180px; border-radius:50%;
-      background:radial-gradient(circle, rgba(232,201,122,0.20), rgba(232,201,122,0.02) 70%);
-      top:-30px; left:calc(50% - 90px);
-    }
-    .seo-hero-symbol{ font-size:54px; line-height:1; position:relative; z-index:2; filter:drop-shadow(0 4px 10px rgba(232,201,122,0.18)); }
-    .seo-summary-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:14px; }
-    .seo-mini-card{ border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.03); border-radius:16px; padding:14px 12px; }
-    .seo-mini-title{ font-size:13px; color:var(--gold); margin-bottom:6px; font-weight:700; }
-    .seo-mini-text{ font-size:13px; color:var(--text-sub); line-height:1.75; }
-    .seo-flow{ display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:14px; }
-    .seo-chip{ padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,0.10); background:rgba(255,255,255,0.04); color:var(--text-sub); font-size:13px; text-decoration:none; }
-    .seo-cta-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:14px; }
-    .seo-link-card{ display:block; text-decoration:none; border-radius:16px; padding:14px 12px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); transition:transform .15s ease, border-color .15s ease; }
-    .seo-link-card:hover{ transform:translateY(-1px); border-color:rgba(232,201,122,0.28); }
-    .seo-link-title{ color:var(--gold); font-size:14px; font-weight:700; margin-bottom:4px; }
-    .seo-link-text{ color:var(--text-sub); font-size:12px; line-height:1.6; }
-    .seo-note{ font-size:13px; color:var(--text-sub); line-height:1.85; }
-    .seo-full-btn{ display:block; text-align:center; text-decoration:none; }
-    @media (max-width: 640px){
-      .seo-summary-grid, .seo-cta-grid{ grid-template-columns:1fr; }
-      .seo-hero-visual{ min-height:140px; max-width:100%; }
-      .seo-hero-symbol{ font-size:46px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오행 | 사주행운</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="bg-decoration">
-    <div class="star" style="--x:10%;--y:15%;--s:3px;--d:0s"></div>
-    <div class="star" style="--x:25%;--y:8%;--s:2px;--d:0.5s"></div>
-    <div class="star" style="--x:40%;--y:20%;--s:4px;--d:1s"></div>
-    <div class="star" style="--x:60%;--y:5%;--s:2px;--d:1.5s"></div>
-    <div class="star" style="--x:75%;--y:18%;--s:3px;--d:0.8s"></div>
-    <div class="star" style="--x:88%;--y:10%;--s:2px;--d:0.3s"></div>
-    <div class="moon-deco">☽</div>
-  </div>
 
-  <header class="header">
-    <div class="header-inner">
-      <a href="index.html" class="logo">
-        <span class="logo-icon">🔯</span>
-        <span class="logo-text">사주행운</span>
-      </a>
-      <nav class="nav">
-        <a href="index.html" class="nav-link">운세보기</a>
-        <a href="guide.html" class="nav-link">이용안내</a>
-        <a href="about.html" class="nav-link">소개</a>
-      </nav>
-    </div>
-  </header>
+<header class="header">
+<div class="header-inner">
+<a href="index.html" class="logo">🔯 사주행운</a>
+</div>
+</header>
 
-  <main class="main">
-    <section class="hero">
-      <div class="hero-badge">✦ 무료 사주 운세 ✦</div>
-      <h1 class="hero-title">사주 오행 무료 설명</h1>
-      <p class="hero-desc">오행 설명 페이지는 정보형 콘텐츠의 핵심입니다. 연애운, 금전운, 직업운 등 주제형 페이지를 이론적으로 받쳐주는 허브 역할을 합니다.</p>
+<main class="main">
 
-      <div class="seo-hero-visual" aria-hidden="true">
-        <div class="seo-hero-symbol">☯</div>
-      </div>
+<section class="hero">
+<h1 class="hero-title">오행 완벽 이해</h1>
+<p class="hero-desc">오행의 흐름과 의미를 쉽게 이해할 수 있도록 정리했습니다.</p>
+</section>
 
-      <div class="seo-flow">
-        <span class="seo-chip">오늘의 흐름</span>
-        <span class="seo-chip">핵심 포인트</span>
-        <span class="seo-chip">상황별 해석</span>
-        <span class="seo-chip">관련 운세 연결</span>
-      </div>
-    </section>
+<section class="section-card">
+<h2 class="section-title">✦ 오행이란 무엇인가?</h2>
+<p class="seo-note">
+오행은 단순히 결과를 맞추는 개념이 아니라, 현재 상황의 흐름과 방향성을 이해하기 위한 기준입니다.
+사주에서는 타고난 기운과 현재 시기의 에너지를 함께 분석하여 어떤 선택이 더 유리한지 판단합니다.
+</p>
+<p class="seo-note">
+즉, 오행은 "앞으로 어떻게 될까?"를 맞히기보다 "지금 무엇을 해야 하는가"를 알려주는 역할을 합니다.
+</p>
+</section>
 
-    <section class="section-card">
-      <h2 class="section-title">
-        <span class="title-deco">✦</span>
-        핵심 요약
-        <span class="title-deco">✦</span>
-      </h2>
-      <div class="seo-summary-grid">
-        <div class="seo-mini-card">
-          <div class="seo-mini-title">오행이란 무엇인가</div>
-          <div class="seo-mini-text">오행은 목(木), 화(火), 토(土), 금(金), 수(水) 다섯 기운의 상호작용을 뜻합니다. 사주에서는 이 다섯 기운의 균형과 흐름을 통해 성향과 상황 변화를 해석하는 기본 틀로 사용합니다.</div>
-        </div>
-        <div class="seo-mini-card">
-          <div class="seo-mini-title">각 기운의 기본 성격</div>
-          <div class="seo-mini-text">목은 성장과 확장, 화는 표현과 열기, 토는 안정과 중재, 금은 정리와 결단, 수는 감정과 지혜의 성격으로 자주 설명됩니다. 어느 한 기운이 강하거나 약할 때 해석 포인트도 달라집니다.</div>
-        </div>
-        <div class="seo-mini-card">
-          <div class="seo-mini-title">오행 페이지의 SEO 역할</div>
-          <div class="seo-mini-text">이 페이지는 검색엔진에게 이 사이트가 단순 결과 생성 도구가 아니라, 사주 개념을 설명하는 정보성 사이트라는 신호를 줍니다. AdSense 심사에서도 정보성과 사용자 경험을 보강하는 데 도움이 됩니다.</div>
-        </div>
-        <div class="seo-mini-card">
-          <div class="seo-mini-title">메인 서비스와 연결하는 방식</div>
-          <div class="seo-mini-text">이 페이지에서 오행을 설명한 뒤, 실제 나의 오행 흐름은 메인 사주행운에서 확인하도록 CTA를 배치하면 자연스러운 이동 구조가 만들어집니다.</div>
-        </div>
-      </div>
-    </section>
+<section class="section-card">
+<h2 class="section-title">✦ 사주에서 왜 중요한가?</h2>
+<p class="seo-note">
+사주는 오행(목, 화, 토, 금, 수)의 균형으로 흐름을 해석합니다.
+특정 기운이 강하거나 약할 때 오행에 직접적인 영향을 미칠 수 있습니다.
+</p>
+<p class="seo-note">
+예를 들어 기운이 안정된 시기에는 결과가 자연스럽게 따라오고,
+불균형한 시기에는 노력 대비 결과가 부족하게 느껴질 수 있습니다.
+</p>
+</section>
 
-    <section class="section-card">
-      <h2 class="section-title">
-        <span class="title-deco">✦</span>
-        상세 해석
-        <span class="title-deco">✦</span>
-      </h2>
-      <p class="seo-note">오행은 목(木), 화(火), 토(土), 금(金), 수(水) 다섯 기운의 상호작용을 뜻합니다. 사주에서는 이 다섯 기운의 균형과 흐름을 통해 성향과 상황 변화를 해석하는 기본 틀로 사용합니다.</p>
-      <p class="seo-note">목은 성장과 확장, 화는 표현과 열기, 토는 안정과 중재, 금은 정리와 결단, 수는 감정과 지혜의 성격으로 자주 설명됩니다. 어느 한 기운이 강하거나 약할 때 해석 포인트도 달라집니다.</p>
-      <p class="seo-note">사주행운은 생년월일을 바탕으로 오늘의 운세와 행운번호를 간단하게 확인할 수 있는 무료 서비스입니다. 아래 설명을 읽은 뒤 실제 결과는 메인 서비스에서 바로 확인할 수 있습니다.</p>
-    </section>
+<section class="section-card">
+<h2 class="section-title">✦ 이렇게 활용하면 좋습니다</h2>
+<ul class="seo-note">
+<li>현재 상황을 객관적으로 판단하는 기준으로 활용</li>
+<li>무리한 선택보다 타이밍을 고려한 결정</li>
+<li>감정보다 흐름 중심으로 행동 조절</li>
+<li>중요한 결정 전에 참고 기준으로 사용</li>
+</ul>
+</section>
 
-    <section class="section-card">
-      <h2 class="section-title">
-        <span class="title-deco">✦</span>
-        관련 운세 더 보기
-        <span class="title-deco">✦</span>
-      </h2>
-      <div class="seo-cta-grid">
-        <a class="seo-link-card" href="saju-love.html">
-          <div class="seo-link-title">사주 연애운</div>
-          <div class="seo-link-text">관련 주제 흐름을 함께 확인해보세요.</div>
-        </a>
-        <a class="seo-link-card" href="saju-money.html">
-          <div class="seo-link-title">사주 금전운</div>
-          <div class="seo-link-text">관련 주제 흐름을 함께 확인해보세요.</div>
-        </a>
-        <a class="seo-link-card" href="saju-career.html">
-          <div class="seo-link-title">사주 직업운</div>
-          <div class="seo-link-text">관련 주제 흐름을 함께 확인해보세요.</div>
-        </a>
-        <a class="seo-link-card" href="saju-marriage.html">
-          <div class="seo-link-title">사주 결혼운</div>
-          <div class="seo-link-text">관련 주제 흐름을 함께 확인해보세요.</div>
-        </a>
-      </div>
-      <div style="margin-top:16px;">
-        <a href="index.html" class="cta-button seo-full-btn">오늘의 운세 · 행운번호 바로 보기</a>
-      </div>
-    </section>
+<section class="section-card">
+<h2 class="section-title">✦ 지금 내 흐름 확인하기</h2>
+<p class="seo-note">
+지금 나의 오행 흐름이 어떤 상태인지 직접 확인해보세요.
+</p>
+<a href="index.html" class="cta-button">👉 무료 사주 결과 보기</a>
+</section>
 
-    <section class="section-card">
-      <h2 class="section-title">
-        <span class="title-deco">✦</span>
-        함께 보면 좋은 페이지
-        <span class="title-deco">✦</span>
-      </h2>
-      <div class="seo-flow">
-<a href="saju-love.html" class="seo-chip">사주 연애운</a>
-<a href="saju-money.html" class="seo-chip">사주 금전운</a>
-<a href="saju-career.html" class="seo-chip">사주 직업운</a>
-<a href="saju-marriage.html" class="seo-chip">사주 결혼운</a>
-<a href="saju-compatibility.html" class="seo-chip">사주 궁합</a>
-<a href="saju-today.html" class="seo-chip">오늘의 사주</a>
-<a href="saju-lucky-number.html" class="seo-chip">사주 행운번호</a>
-<a href="saju-2026.html" class="seo-chip">2026 사주 운세</a>
-      </div>
-    </section>
-
-    <section class="section-card">
-      <h2 class="section-title">
-        <span class="title-deco">✦</span>
-        자주 보는 질문
-        <span class="title-deco">✦</span>
-      </h2>
-      <div class="seo-summary-grid">
-        <div class="seo-mini-card">
-          <div class="seo-mini-title">오행이 많거나 적으면 좋은 건가요?</div>
-          <div class="seo-mini-text">무조건 많고 적음으로 판단하기보다, 균형과 전체 조합을 함께 보는 것이 중요합니다.</div>
-        </div>
-        <div class="seo-mini-card">
-          <div class="seo-mini-title">오행 설명만으로 내 사주를 알 수 있나요?</div>
-          <div class="seo-mini-text">기본 이해에는 도움이 되지만, 개인 결과는 생년월일 정보를 바탕으로 별도로 확인하는 것이 좋습니다.</div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <p class="footer-disclaimer">
-      사주행운은 재미와 흥미를 위한 서비스입니다<br/>
-      운세와 행운 번호는 오락 목적이며 결과를 보장하지 않습니다
-    </p>
-    <p class="footer-copyright">© 2026 사주행운</p>
-    <div class="footer-links">
-      <a href="privacy.html">개인정보처리방침</a>
-      <a href="terms.html">이용약관</a>
-      <a href="about.html">서비스 소개</a>
-    </div>
-  </footer>
+</main>
 </body>
 </html>
