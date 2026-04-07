@@ -21,30 +21,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <style>
-    .seo-hero-visual {
-      display:flex; justify-content:center; align-items:center; margin:20px auto 8px; width:100%; max-width:320px; min-height:160px;
-      border-radius:20px; background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-      border:1px solid rgba(255,255,255,0.08); box-shadow:0 8px 28px rgba(0,0,0,0.25); position:relative; overflow:hidden;
-    }
-    .seo-hero-visual::before {
-      content:""; position:absolute; width:180px; height:180px; border-radius:50%;
-      background:radial-gradient(circle, rgba(232,201,122,0.20), rgba(232,201,122,0.02) 70%); top:-30px; left:calc(50% - 90px);
-    }
+    .seo-hero-visual { display:flex; justify-content:center; align-items:center; margin:20px auto 8px; width:100%; max-width:320px; min-height:160px; border-radius:20px; background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); border:1px solid rgba(255,255,255,0.08); box-shadow:0 8px 28px rgba(0,0,0,0.25); position:relative; overflow:hidden; }
+    .seo-hero-visual::before { content:""; position:absolute; width:180px; height:180px; border-radius:50%; background:radial-gradient(circle, rgba(232,201,122,0.20), rgba(232,201,122,0.02) 70%); top:-30px; left:calc(50% - 90px); }
     .seo-hero-symbol { font-size:54px; line-height:1; position:relative; z-index:2; filter:drop-shadow(0 4px 10px rgba(232,201,122,0.18)); }
-    .seo-summary-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:14px; }
-    .seo-mini-card { border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.03); border-radius:16px; padding:14px 12px; }
-    .seo-mini-title { font-size:13px; color:var(--gold); margin-bottom:6px; font-weight:700; }
-    .seo-mini-text { font-size:13px; color:var(--text-sub); line-height:1.75; }
-    .seo-flow { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:14px; }
-    .seo-chip { padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,0.10); background:rgba(255,255,255,0.04); color:var(--text-sub); font-size:13px; text-decoration:none; }
-    .seo-cta-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:14px; }
-    .seo-link-card { display:block; text-decoration:none; border-radius:16px; padding:14px 12px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); }
-    .seo-link-title { color:var(--gold); font-size:14px; font-weight:700; margin-bottom:4px; }
-    .seo-link-text { color:var(--text-sub); font-size:12px; line-height:1.6; }
-    .seo-note { font-size:13px; color:var(--text-sub); line-height:1.9; }
+    .seo-summary-grid,.seo-cta-grid,.faq-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:14px; }
+    .seo-mini-card,.seo-link-card,.faq-card { border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.03); border-radius:16px; padding:14px 12px; text-decoration:none; display:block; }
+    .seo-mini-title,.seo-link-title,.faq-title { font-size:13px; color:var(--gold); margin-bottom:6px; font-weight:700; }
+    .seo-mini-text,.seo-link-text,.faq-text,.seo-note,.guide-tip { font-size:13px; color:var(--text-sub); line-height:1.85; }
+    .seo-flow,.chip-wrap { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:14px; }
+    .seo-chip,.chip-link { padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,0.10); background:rgba(255,255,255,0.04); color:var(--text-sub); font-size:13px; text-decoration:none; }
     .seo-full-btn { display:block; text-align:center; text-decoration:none; }
     @media (max-width: 640px) {
-      .seo-summary-grid, .seo-cta-grid { grid-template-columns:1fr; }
+      .seo-summary-grid,.seo-cta-grid,.faq-grid { grid-template-columns:1fr; }
       .seo-hero-visual { min-height:140px; max-width:100%; }
       .seo-hero-symbol { font-size:46px; }
     }
@@ -64,10 +52,7 @@
   <header class="header">
     <div class="header-inner">
       <a href="index.html" class="logo"><span class="logo-icon">🔯</span><span class="logo-text">사주행운</span></a>
-      <nav class="nav">
-        <a href="saju-guide.html" class="nav-link">사주 이해하기</a>
-        <a href="guide.html" class="nav-link">이용안내</a>
-      </nav>
+      <nav class="nav"><a href="saju-guide.html" class="nav-link">사주 이해하기</a><a href="guide.html" class="nav-link">이용안내</a></nav>
     </div>
   </header>
 
@@ -77,9 +62,7 @@
       <h1 class="hero-title">돈 들어오는 시기</h1>
       <p class="hero-desc">금전의 흐름이 열리는 시기와 지켜야 할 기준을 이해하는 실전형 주제입니다.</p>
       <div class="seo-hero-visual" aria-hidden="true"><div class="seo-hero-symbol">💸</div></div>
-      <div class="seo-flow">
-        <span class="seo-chip">의미 이해</span><span class="seo-chip">흐름 해석</span><span class="seo-chip">상황별 적용</span><span class="seo-chip">실전 활용</span>
-      </div>
+      <div class="seo-flow"><span class="seo-chip">의미 이해</span><span class="seo-chip">흐름 해석</span><span class="seo-chip">상황별 적용</span><span class="seo-chip">실전 활용</span></div>
     </section>
 
     <section class="section-card">
@@ -107,11 +90,36 @@
     <section class="section-card">
       <h2 class="section-title"><span class="title-deco">✦</span> 이렇게 활용하면 좋습니다 <span class="title-deco">✦</span></h2>
       <p class="seo-note">이 페이지를 통해 돈 들어오는 시기의 의미를 조금 더 쉽게 이해했다면, 이제 실제 내 흐름을 확인해보는 것이 가장 빠릅니다. 사주행운 메인에서는 생년월일과 성별, 필요한 경우 태어난 시간까지 입력해 오늘의 운세와 행운번호를 함께 확인할 수 있습니다. 설명을 먼저 읽고 결과를 보면 단순한 문장보다 훨씬 더 잘 이해되고, 현재 내 상황에 맞는 해석으로 연결하기도 쉬워집니다. 너무 무겁게 받아들이기보다, 참고용 가이드로 활용하면서 내 일상과 선택을 돌아보는 계기로 사용해보세요.</p>
+    </section>
+
+    <section class="section-card">
+      <h2 class="section-title"><span class="title-deco">✦</span> 관련 운세 더 보기 <span class="title-deco">✦</span></h2>
       <div class="seo-cta-grid">
-        <a href="index.html" class="seo-link-card"><div class="seo-link-title">지금 바로 결과 보기</div><div class="seo-link-text">생년월일과 성별을 입력하고 오늘의 운세와 행운번호를 확인해보세요.</div></a>
-        <a href="saju-guide.html" class="seo-link-card"><div class="seo-link-title">다른 사주 설명 더 보기</div><div class="seo-link-text">연애, 금전, 직업, 건강, 궁합 등 관련 주제를 함께 읽어보세요.</div></a>
+        <a href="saju-love.html" class="seo-link-card"><div class="seo-link-title">사주 연애운</div><div class="seo-link-text">관련 주제 흐름을 함께 확인해보세요.</div></a>
+<a href="saju-money.html" class="seo-link-card"><div class="seo-link-title">사주 금전운</div><div class="seo-link-text">관련 주제 흐름을 함께 확인해보세요.</div></a>
+<a href="saju-career.html" class="seo-link-card"><div class="seo-link-title">사주 직업운</div><div class="seo-link-text">관련 주제 흐름을 함께 확인해보세요.</div></a>
+<a href="saju-marriage.html" class="seo-link-card"><div class="seo-link-title">사주 결혼운</div><div class="seo-link-text">관련 주제 흐름을 함께 확인해보세요.</div></a>
       </div>
-      <div style="margin-top:16px;"><a href="index.html" class="cta-button seo-full-btn">👉 오늘의 운세 · 행운번호 보기</a></div>
+      <div style="margin-top:16px;"><a href="index.html" class="cta-button seo-full-btn">오늘의 운세 · 행운번호 바로 보기</a></div>
+    </section>
+
+    <section class="section-card">
+      <h2 class="section-title"><span class="title-deco">✦</span> 함께 보면 좋은 페이지 <span class="title-deco">✦</span></h2>
+      <div class="chip-wrap"><a href="saju-love.html" class="chip-link">사주 연애운</a>
+<a href="saju-money.html" class="chip-link">사주 금전운</a>
+<a href="saju-career.html" class="chip-link">사주 직업운</a>
+<a href="saju-marriage.html" class="chip-link">사주 결혼운</a>
+<a href="saju-compatibility.html" class="chip-link">사주 궁합</a>
+<a href="saju-today.html" class="chip-link">오늘의 사주</a>
+<a href="saju-lucky-number.html" class="chip-link">사주 행운번호</a>
+<a href="saju-2026.html" class="chip-link">2026 사주 운세</a></div>
+    </section>
+
+    <section class="section-card">
+      <h2 class="section-title"><span class="title-deco">✦</span> 자주 보는 질문 <span class="title-deco">✦</span></h2>
+      <div class="faq-grid"><div class="faq-card"><div class="faq-title">사주 결과는 무조건 그대로 믿어야 하나요?</div><div class="faq-text">아닙니다. 사주는 현재 흐름을 이해하고 선택 기준을 세우는 참고 도구로 활용하는 것이 가장 좋습니다.</div></div>
+<div class="faq-card"><div class="faq-title">좋은 운세가 나오면 바로 큰 결정을 해도 되나요?</div><div class="faq-text">좋은 흐름은 자신감을 주지만, 중요한 결정일수록 현실 조건과 타이밍을 함께 확인하는 것이 안전합니다.</div></div>
+<div class="faq-card"><div class="faq-title">사주를 자주 보면 결과가 달라지나요?</div><div class="faq-text">같은 사람의 기본 성향은 크게 달라지지 않지만, 시기별 분위기와 해석 포인트는 달라질 수 있습니다.</div></div></div>
     </section>
   </main>
 

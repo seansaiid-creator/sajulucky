@@ -4,129 +4,39 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>사주 쉽게 이해하기 | 사주행운</title>
-  <meta name="description" content="오행, 연애운, 금전운, 직업운, 건강운, 인간관계, 궁합 등 사주행운의 28개 사주 이해 콘텐츠를 한곳에서 쉽게 찾아볼 수 있습니다." />
+  <meta name="description" content="오행, 연애운, 금전운, 직업운, 건강운, 인간관계, 궁합, 행운번호, 2026 운세까지 사주행운의 설명 페이지를 한곳에서 확인하세요." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://sajulucky.vercel.app/saju-guide.html" />
   <meta property="og:title" content="사주 쉽게 이해하기 | 사주행운" />
-  <meta property="og:description" content="사주 기초 개념부터 연애, 금전, 직업, 건강, 인간관계까지 28개 콘텐츠를 한 번에 확인하세요." />
+  <meta property="og:description" content="사주행운의 주요 설명 페이지를 주제별로 한눈에 확인하세요." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://sajulucky.vercel.app/saju-guide.html" />
   <meta property="og:locale" content="ko_KR" />
   <meta property="og:site_name" content="사주행운" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="사주 쉽게 이해하기 | 사주행운" />
-  <meta name="twitter:description" content="사주행운의 28개 사주 이해 콘텐츠를 한곳에 모았습니다." />
+  <meta name="twitter:description" content="사주행운의 설명 페이지를 카테고리별로 정리한 허브 페이지입니다." />
   <meta name="naver-site-verification" content="672426f975e750045e6d27c9b8cb8b0413c75405" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <style>
-    .guide-intro {
-      color: var(--text-sub);
-      font-size: 14px;
-      line-height: 1.9;
-      text-align: center;
-      margin-bottom: 18px;
-    }
-    .guide-count {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(232,201,122,0.22);
-      background: rgba(232,201,122,0.08);
-      color: var(--gold);
-      font-size: 12px;
-      margin: 8px auto 0;
-    }
-    .guide-section-title {
-      color: var(--gold);
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      letter-spacing: 0.03em;
-    }
-    .guide-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-    }
-    .guide-link-card {
-      display: block;
-      text-decoration: none;
-      border-radius: 16px;
-      padding: 14px 12px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: transform .15s ease, border-color .15s ease;
-      min-height: 94px;
-    }
-    .guide-link-card:hover,
-    .guide-link-card:active {
-      transform: translateY(-1px);
-      border-color: rgba(232,201,122,0.28);
-    }
-    .guide-link-title {
-      color: var(--gold);
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 6px;
-      line-height: 1.4;
-    }
-    .guide-link-text {
-      color: var(--text-sub);
-      font-size: 12px;
-      line-height: 1.7;
-    }
-    .guide-tip {
-      color: var(--text-sub);
-      font-size: 13px;
-      line-height: 1.85;
-    }
-    .guide-cta-row {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-      margin-top: 12px;
-    }
-    .guide-cta-link {
-      display: block;
-      text-align: center;
-      text-decoration: none;
-    }
-    @media (max-width: 640px) {
-      .guide-grid {
-        grid-template-columns: 1fr;
-      }
-      .guide-link-card {
-        min-height: 0;
-      }
-    }
+    .guide-intro { color: var(--text-sub); font-size: 14px; line-height: 1.9; text-align: center; margin-bottom: 18px; }
+    .guide-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+    .guide-link-card { display:block; text-decoration:none; border-radius:16px; padding:14px 12px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); min-height:94px; }
+    .guide-link-title { color: var(--gold); font-size: 14px; font-weight: 700; margin-bottom: 6px; line-height: 1.4; }
+    .guide-link-text { color: var(--text-sub); font-size: 12px; line-height: 1.7; }
+    @media (max-width: 640px) { .guide-grid { grid-template-columns:1fr; } .guide-link-card { min-height:0; } }
   </style>
 </head>
 <body>
   <div class="bg-decoration">
-    <div class="star" style="--x:10%;--y:15%;--s:3px;--d:0s"></div>
-    <div class="star" style="--x:25%;--y:8%;--s:2px;--d:0.5s"></div>
-    <div class="star" style="--x:40%;--y:20%;--s:4px;--d:1s"></div>
-    <div class="star" style="--x:60%;--y:5%;--s:2px;--d:1.5s"></div>
-    <div class="star" style="--x:75%;--y:18%;--s:3px;--d:0.8s"></div>
-    <div class="star" style="--x:88%;--y:10%;--s:2px;--d:0.3s"></div>
-    <div class="moon-deco">☽</div>
+    <div class="star" style="--x:10%;--y:15%;--s:3px;--d:0s"></div><div class="star" style="--x:25%;--y:8%;--s:2px;--d:0.5s"></div><div class="star" style="--x:40%;--y:20%;--s:4px;--d:1s"></div><div class="star" style="--x:60%;--y:5%;--s:2px;--d:1.5s"></div><div class="star" style="--x:75%;--y:18%;--s:3px;--d:0.8s"></div><div class="star" style="--x:88%;--y:10%;--s:2px;--d:0.3s"></div><div class="moon-deco">☽</div>
   </div>
-
   <header class="header">
     <div class="header-inner">
-      <a href="index.html" class="logo">
-        <span class="logo-icon">🔯</span>
-        <span class="logo-text">사주행운</span>
-      </a>
-      <nav class="nav">
-        <a href="saju-guide.html" class="nav-link active">사주 이해하기</a>
-        <a href="guide.html" class="nav-link">이용안내</a>
-      </nav>
+      <a href="index.html" class="logo"><span class="logo-icon">🔯</span><span class="logo-text">사주행운</span></a>
+      <nav class="nav"><a href="saju-guide.html" class="nav-link active">사주 이해하기</a><a href="guide.html" class="nav-link">이용안내</a></nav>
     </div>
   </header>
 
@@ -134,241 +44,71 @@
     <section class="hero">
       <div class="hero-badge">✦ 사주 이해 콘텐츠 ✦</div>
       <h1 class="hero-title">사주 쉽게 이해하기</h1>
-      <p class="hero-desc">사주행운의 모든 이해 콘텐츠를 한곳에 모았습니다</p>
-      <p class="guide-intro">
-        사주는 결과만 보는 것도 중요하지만, 그 의미를 이해할수록 훨씬 더 잘 활용할 수 있습니다.
-        아래 28개 설명 페이지에서 오행, 연애, 금전, 직업, 건강, 인간관계, 궁합, 생활 흐름까지 주제별로 차근차근 확인해보세요.
-      </p>
-</section>
-
-    <section class="section-card">
-      <h2 class="section-title">
-        <span class="title-deco">✦</span>
-        기초 이해
-        <span class="title-deco">✦</span>
-      </h2>
-      <div class="guide-grid">
-        <a href="saju-five-elements.html" class="guide-link-card">
-          <div class="guide-link-title">오행 이해하기</div>
-          <div class="guide-link-text">목·화·토·금·수의 의미와 사주 해석의 기본 구조를 쉽게 설명합니다.</div>
-        </a>
-        <a href="saju-birthday.html" class="guide-link-card">
-          <div class="guide-link-title">생년월일로 보는 사주</div>
-          <div class="guide-link-text">생년월일 입력이 왜 중요한지, 어떤 기준으로 해석이 시작되는지 이해할 수 있습니다.</div>
-        </a>
-        <a href="saju-today.html" class="guide-link-card">
-          <div class="guide-link-title">오늘의 사주</div>
-          <div class="guide-link-text">하루 단위 흐름을 읽는 기준과 오늘 운세를 보는 방법을 설명합니다.</div>
-        </a>
-        <a href="saju-compatibility.html" class="guide-link-card">
-          <div class="guide-link-title">궁합 이해하기</div>
-          <div class="guide-link-text">두 사람의 흐름을 어떻게 비교하는지, 궁합을 볼 때 무엇을 봐야 하는지 정리합니다.</div>
-        </a>
-      </div>
+      <p class="hero-desc">사주행운의 주요 설명 페이지를 한곳에 모았습니다</p>
+      <p class="guide-intro">사주는 결과만 보는 것보다 의미를 이해할수록 훨씬 잘 활용할 수 있습니다. 아래 주제별 설명 페이지에서 오행, 연애, 금전, 직업, 건강, 인간관계, 일정 흐름, 행운번호까지 차근차근 확인해보세요.</p>
     </section>
 
-    <section class="section-card">
-      <h2 class="section-title">
-        <span class="title-deco">✦</span>
-        연애 · 관계
-        <span class="title-deco">✦</span>
-      </h2>
-      <div class="guide-grid">
-        <a href="saju-love.html" class="guide-link-card">
-          <div class="guide-link-title">연애운</div>
-          <div class="guide-link-text">감정 흐름, 인연의 타이밍, 관계 진전의 방향을 이해할 수 있습니다.</div>
-        </a>
-        <a href="saju-marriage.html" class="guide-link-card">
-          <div class="guide-link-title">결혼운</div>
-          <div class="guide-link-text">관계가 안정되고 현실화되는 흐름을 볼 때 참고하면 좋은 설명입니다.</div>
-        </a>
-        <a href="saju-new-love.html" class="guide-link-card">
-          <div class="guide-link-title">새로운 인연운</div>
-          <div class="guide-link-text">새 만남, 소개, 새로운 관계가 시작되는 흐름을 읽는 기준입니다.</div>
-        </a>
-        <a href="saju-breakup.html" class="guide-link-card">
-          <div class="guide-link-title">이별운</div>
-          <div class="guide-link-text">관계 정리, 감정 소진, 거리감이 커지는 흐름을 이해할 수 있습니다.</div>
-        </a>
-        <a href="saju-reunion.html" class="guide-link-card">
-          <div class="guide-link-title">재회운</div>
-          <div class="guide-link-text">다시 연락이 닿거나 과거 인연이 재연결되는 흐름을 설명합니다.</div>
-        </a>
-        <a href="saju-spouse-luck.html" class="guide-link-card">
-          <div class="guide-link-title">배우자복</div>
-          <div class="guide-link-text">상대와의 조화, 도움, 안정감이 어떤 식으로 형성되는지 정리합니다.</div>
-        </a>
-        <a href="saju-friendship.html" class="guide-link-card">
-          <div class="guide-link-title">인간관계운</div>
-          <div class="guide-link-text">친구, 동료, 주변 사람과의 거리감과 소통 흐름을 폭넓게 다룹니다.</div>
-        </a>
-        <a href="saju-social-luck.html" class="guide-link-card">
-          <div class="guide-link-title">대인운</div>
-          <div class="guide-link-text">만남, 네트워크, 협업, 소개 같은 사람 흐름을 중심으로 설명합니다.</div>
-        </a>
-        <a href="saju-family.html" class="guide-link-card">
-          <div class="guide-link-title">가족운</div>
-          <div class="guide-link-text">집안 분위기, 부모·형제와의 관계, 가족 소통 흐름을 이해하는 데 좋습니다.</div>
-        </a>
-        <a href="saju-2026-love.html" class="guide-link-card">
-          <div class="guide-link-title">2026년 연애운</div>
-          <div class="guide-link-text">연도 단위 연애 흐름과 인연 타이밍을 정리한 설명 페이지입니다.</div>
-        </a>
-        <a href="saju-relationship-cutoff.html" class="guide-link-card">
-          <div class="guide-link-title">인간관계 정리 시기</div>
-          <div class="guide-link-text">관계를 끊어야 할지, 거리 조절이 필요한지 해석합니다.</div>
-        </a>
-      </div>
-    </section>
+    <section class="section-card"><h2 class="section-title"><span class="title-deco">✦</span> 기초 이해 <span class="title-deco">✦</span></h2><div class="guide-grid">
+      <a href="saju-five-elements.html" class="guide-link-card"><div class="guide-link-title">오행</div><div class="guide-link-text">사주 해석의 뼈대가 되는 목·화·토·금·수의 의미를 이해합니다.</div></a>
+      <a href="saju-birthday.html" class="guide-link-card"><div class="guide-link-title">생년월일 사주</div><div class="guide-link-text">생년월일 기준으로 사주를 어떻게 읽는지 쉽게 설명합니다.</div></a>
+      <a href="saju-zodiac.html" class="guide-link-card"><div class="guide-link-title">띠운세</div><div class="guide-link-text">띠를 기준으로 가볍게 흐름을 확인하고 싶을 때 좋습니다.</div></a>
+      <a href="saju-compatibility.html" class="guide-link-card"><div class="guide-link-title">궁합</div><div class="guide-link-text">두 사람의 성향과 흐름이 어떻게 맞물리는지 이해합니다.</div></a>
+      <a href="saju-luck.html" class="guide-link-card"><div class="guide-link-title">행운</div><div class="guide-link-text">기회가 열리는 흐름과 행동 타이밍을 이해합니다.</div></a>
+      <a href="saju-future.html" class="guide-link-card"><div class="guide-link-title">미래운</div><div class="guide-link-text">앞으로의 방향성과 준비 포인트를 읽는 데 도움이 됩니다.</div></a>
+      <a href="saju-lucky-number.html" class="guide-link-card"><div class="guide-link-title">행운번호</div><div class="guide-link-text">오늘의 흐름을 숫자로 가볍게 즐기는 재미 요소입니다.</div></a>
+      <a href="saju-2026.html" class="guide-link-card"><div class="guide-link-title">2026 사주 운세</div><div class="guide-link-text">한 해 전체 방향을 넓게 보고 싶을 때 참고할 수 있습니다.</div></a>
+    </div></section>
 
-    <section class="section-card">
-      <h2 class="section-title">
-        <span class="title-deco">✦</span>
-        돈 · 일 · 커리어
-        <span class="title-deco">✦</span>
-      </h2>
-      <div class="guide-grid">
-        <a href="saju-money.html" class="guide-link-card">
-          <div class="guide-link-title">금전운</div>
-          <div class="guide-link-text">지출, 저축, 소비 패턴, 기회 포인트를 어떻게 읽는지 설명합니다.</div>
-        </a>
-        <a href="saju-wealth-luck.html" class="guide-link-card">
-          <div class="guide-link-title">재물복</div>
-          <div class="guide-link-text">돈이 머무는 힘, 수입 안정감, 재물 구조를 보는 해석입니다.</div>
-        </a>
-        <a href="saju-career.html" class="guide-link-card">
-          <div class="guide-link-title">직업운</div>
-          <div class="guide-link-text">업무 흐름, 커리어 방향, 일의 안정성과 성과를 설명합니다.</div>
-        </a>
-        <a href="saju-job-change.html" class="guide-link-card">
-          <div class="guide-link-title">이직운</div>
-          <div class="guide-link-text">변화 타이밍, 외부 기회, 현재 자리의 한계를 읽는 기준입니다.</div>
-        </a>
-        <a href="saju-promotion.html" class="guide-link-card">
-          <div class="guide-link-title">승진운</div>
-          <div class="guide-link-text">평가, 인정, 역할 확대, 커리어 상승 흐름에 집중한 설명입니다.</div>
-        </a>
-        <a href="saju-business.html" class="guide-link-card">
-          <div class="guide-link-title">사업운</div>
-          <div class="guide-link-text">창업, 독립, 확장성, 사람과 돈을 다루는 구조를 이해할 수 있습니다.</div>
-        </a>
-        <a href="saju-sidejob.html" class="guide-link-card">
-          <div class="guide-link-title">부업운</div>
-          <div class="guide-link-text">추가 수입, 시간 배분, 실행 지속력을 보는 데 참고하면 좋습니다.</div>
-        </a>
-        <a href="saju-contract.html" class="guide-link-card">
-          <div class="guide-link-title">계약운</div>
-          <div class="guide-link-text">문서, 약속, 합의, 결정 과정에서 실수를 줄이는 흐름을 설명합니다.</div>
-        </a>
-        <a href="saju-money-timing.html" class="guide-link-card">
-          <div class="guide-link-title">돈 들어오는 시기</div>
-          <div class="guide-link-text">금전운과 재물복 관점에서 수입 흐름을 읽는 기준입니다.</div>
-        </a>
-        <a href="saju-job-change-timing.html" class="guide-link-card">
-          <div class="guide-link-title">이직 시기 판단</div>
-          <div class="guide-link-text">이직운과 직업운을 함께 보는 실전형 설명 페이지입니다.</div>
-        </a>
-        <a href="saju-right-career.html" class="guide-link-card">
-          <div class="guide-link-title">나에게 맞는 직업</div>
-          <div class="guide-link-text">사주 성향으로 직업 방향과 일 스타일을 이해할 수 있습니다.</div>
-        </a>
-      </div>
-    </section>
+    <section class="section-card"><h2 class="section-title"><span class="title-deco">✦</span> 연애 · 관계 <span class="title-deco">✦</span></h2><div class="guide-grid">
+      <a href="saju-love.html" class="guide-link-card"><div class="guide-link-title">연애운</div><div class="guide-link-text">감정 흐름과 인연의 타이밍을 이해합니다.</div></a>
+      <a href="saju-marriage.html" class="guide-link-card"><div class="guide-link-title">결혼운</div><div class="guide-link-text">관계가 현실화되고 안정되는 흐름을 살펴봅니다.</div></a>
+      <a href="saju-new-love.html" class="guide-link-card"><div class="guide-link-title">새로운 인연운</div><div class="guide-link-text">새 만남과 소개, 새로운 관계의 시작을 읽습니다.</div></a>
+      <a href="saju-breakup.html" class="guide-link-card"><div class="guide-link-title">이별운</div><div class="guide-link-text">관계가 멀어지는 흐름과 감정 정리 시기를 봅니다.</div></a>
+      <a href="saju-reunion.html" class="guide-link-card"><div class="guide-link-title">재회운</div><div class="guide-link-text">끊어진 인연이 다시 이어질 가능성을 살펴봅니다.</div></a>
+      <a href="saju-spouse-luck.html" class="guide-link-card"><div class="guide-link-title">배우자복</div><div class="guide-link-text">관계 속 안정감과 서로에게 주는 도움을 이해합니다.</div></a>
+      <a href="saju-friendship.html" class="guide-link-card"><div class="guide-link-title">인간관계운</div><div class="guide-link-text">친구, 동료와의 거리감과 소통 흐름을 폭넓게 봅니다.</div></a>
+      <a href="saju-social-luck.html" class="guide-link-card"><div class="guide-link-title">대인운</div><div class="guide-link-text">소개, 네트워크, 협업 같은 사람 흐름을 중심으로 설명합니다.</div></a>
+      <a href="saju-family.html" class="guide-link-card"><div class="guide-link-title">가족운</div><div class="guide-link-text">집안 분위기와 가족 간의 소통 흐름을 봅니다.</div></a>
+      <a href="saju-human-relations.html" class="guide-link-card"><div class="guide-link-title">대인관계</div><div class="guide-link-text">사람을 대하는 방식과 관계 유지 리듬을 이해합니다.</div></a>
+      <a href="saju-relationship.html" class="guide-link-card"><div class="guide-link-title">인간관계</div><div class="guide-link-text">갈등과 회복, 소통의 방향을 폭넓게 살펴봅니다.</div></a>
+      <a href="saju-2026-love.html" class="guide-link-card"><div class="guide-link-title">2026년 연애운</div><div class="guide-link-text">연도 단위 연애 흐름과 인연 타이밍을 정리합니다.</div></a>
+      <a href="saju-relationship-cutoff.html" class="guide-link-card"><div class="guide-link-title">인간관계 정리 시기</div><div class="guide-link-text">관계를 끊거나 거리 조절이 필요한 시기를 이해합니다.</div></a>
+    </div></section>
 
-    <section class="section-card">
-      <h2 class="section-title">
-        <span class="title-deco">✦</span>
-        생활 · 일정 · 컨디션
-        <span class="title-deco">✦</span>
-      </h2>
-      <div class="guide-grid">
-        <a href="saju-health.html" class="guide-link-card">
-          <div class="guide-link-title">건강운</div>
-          <div class="guide-link-text">컨디션 저하, 피로 누적, 생활 리듬 관리 포인트를 이해할 수 있습니다.</div>
-        </a>
-        <a href="saju-study.html" class="guide-link-card">
-          <div class="guide-link-title">공부운</div>
-          <div class="guide-link-text">집중력, 반복 학습, 정리 능력, 꾸준함의 흐름을 설명합니다.</div>
-        </a>
-        <a href="saju-exam.html" class="guide-link-card">
-          <div class="guide-link-title">시험운</div>
-          <div class="guide-link-text">시험 당일 집중력, 긴장 관리, 실수 가능성을 보는 설명 페이지입니다.</div>
-        </a>
-        <a href="saju-weekly.html" class="guide-link-card">
-          <div class="guide-link-title">주간 운세</div>
-          <div class="guide-link-text">이번 주의 일정 흐름, 집중 시점, 피해야 할 무리수를 정리합니다.</div>
-        </a>
-        <a href="saju-monthly.html" class="guide-link-card">
-          <div class="guide-link-title">월간 운세</div>
-          <div class="guide-link-text">이번 달 변화 포인트와 장기 흐름을 이해하는 데 도움이 됩니다.</div>
-        </a>
-        <a href="saju-travel.html" class="guide-link-card">
-          <div class="guide-link-title">여행운</div>
-          <div class="guide-link-text">이동, 여행 타이밍, 새로운 경험과 리프레시 흐름을 다룹니다.</div>
-        </a>
-        <a href="saju-move.html" class="guide-link-card">
-          <div class="guide-link-title">이사운</div>
-          <div class="guide-link-text">거주 변화, 새 환경 적응력, 생활 기반의 안정감을 읽는 설명입니다.</div>
-        </a>
-      </div>
-    </section>
+    <section class="section-card"><h2 class="section-title"><span class="title-deco">✦</span> 돈 · 일 · 커리어 <span class="title-deco">✦</span></h2><div class="guide-grid">
+      <a href="saju-money.html" class="guide-link-card"><div class="guide-link-title">금전운</div><div class="guide-link-text">수입, 지출, 소비 흐름을 해석합니다.</div></a>
+      <a href="saju-wealth-luck.html" class="guide-link-card"><div class="guide-link-title">재물복</div><div class="guide-link-text">돈이 머무는 구조와 안정감을 이해합니다.</div></a>
+      <a href="saju-wealth.html" class="guide-link-card"><div class="guide-link-title">재물운</div><div class="guide-link-text">현실적인 재정 감각과 수입 안정의 흐름을 봅니다.</div></a>
+      <a href="saju-career.html" class="guide-link-card"><div class="guide-link-title">직업운</div><div class="guide-link-text">일의 방향과 성과, 역할을 설명합니다.</div></a>
+      <a href="saju-job-change.html" class="guide-link-card"><div class="guide-link-title">이직운</div><div class="guide-link-text">변화 타이밍과 외부 기회를 읽는 기준입니다.</div></a>
+      <a href="saju-job-change-timing.html" class="guide-link-card"><div class="guide-link-title">이직 시기 판단</div><div class="guide-link-text">언제 움직이고 준비할지 타이밍 중심으로 봅니다.</div></a>
+      <a href="saju-promotion.html" class="guide-link-card"><div class="guide-link-title">승진운</div><div class="guide-link-text">평가, 인정, 역할 확대 흐름을 살펴봅니다.</div></a>
+      <a href="saju-business.html" class="guide-link-card"><div class="guide-link-title">사업운</div><div class="guide-link-text">창업과 확장, 운영 감각을 이해합니다.</div></a>
+      <a href="saju-sidejob.html" class="guide-link-card"><div class="guide-link-title">부업운</div><div class="guide-link-text">추가 수입과 실행 지속력을 보는 데 좋습니다.</div></a>
+      <a href="saju-side-job.html" class="guide-link-card"><div class="guide-link-title">부업운 (확장)</div><div class="guide-link-text">본업과의 균형 속에서 추가 수입 흐름을 봅니다.</div></a>
+      <a href="saju-contract.html" class="guide-link-card"><div class="guide-link-title">계약운</div><div class="guide-link-text">문서, 약속, 합의 과정에서 실수를 줄이는 흐름입니다.</div></a>
+      <a href="saju-money-timing.html" class="guide-link-card"><div class="guide-link-title">돈 들어오는 시기</div><div class="guide-link-text">수입 흐름이 열리는 시기를 해석하는 실전형 주제입니다.</div></a>
+      <a href="saju-right-career.html" class="guide-link-card"><div class="guide-link-title">나에게 맞는 직업</div><div class="guide-link-text">사주 성향으로 직업 방향과 일 스타일을 이해합니다.</div></a>
+    </div></section>
 
-    <section class="section-card">
-      <h2 class="section-title">
-        <span class="title-deco">✦</span>
-        빠르게 많이 찾는 페이지
-        <span class="title-deco">✦</span>
-      </h2>
-      <div class="guide-grid">
-        <a href="saju-love.html" class="guide-link-card">
-          <div class="guide-link-title">연애운 바로 보기</div>
-          <div class="guide-link-text">가장 많이 찾는 연애 흐름 설명 페이지로 바로 이동합니다.</div>
-        </a>
-        <a href="saju-money.html" class="guide-link-card">
-          <div class="guide-link-title">금전운 바로 보기</div>
-          <div class="guide-link-text">돈 흐름과 소비·저축 기준을 빠르게 확인할 수 있습니다.</div>
-        </a>
-        <a href="saju-career.html" class="guide-link-card">
-          <div class="guide-link-title">직업운 바로 보기</div>
-          <div class="guide-link-text">커리어 방향과 일의 흐름을 가장 먼저 보고 싶을 때 좋습니다.</div>
-        </a>
-        <a href="saju-five-elements.html" class="guide-link-card">
-          <div class="guide-link-title">오행 바로 보기</div>
-          <div class="guide-link-text">사주 기초 개념부터 이해하고 싶다면 가장 먼저 보는 페이지입니다.</div>
-        </a>
-      </div>
-    </section>
+    <section class="section-card"><h2 class="section-title"><span class="title-deco">✦</span> 생활 · 일정 · 컨디션 <span class="title-deco">✦</span></h2><div class="guide-grid">
+      <a href="saju-health.html" class="guide-link-card"><div class="guide-link-title">건강운</div><div class="guide-link-text">컨디션과 생활 리듬 관리 포인트를 이해합니다.</div></a>
+      <a href="saju-study.html" class="guide-link-card"><div class="guide-link-title">공부운</div><div class="guide-link-text">집중력과 꾸준함의 흐름을 설명합니다.</div></a>
+      <a href="saju-exam.html" class="guide-link-card"><div class="guide-link-title">시험운</div><div class="guide-link-text">시험 당일 집중력과 긴장 관리 흐름을 봅니다.</div></a>
+      <a href="saju-weekly.html" class="guide-link-card"><div class="guide-link-title">주간 운세</div><div class="guide-link-text">이번 주의 일정 흐름과 행동 기준을 정리합니다.</div></a>
+      <a href="saju-monthly.html" class="guide-link-card"><div class="guide-link-title">월간 운세</div><div class="guide-link-text">이번 달 변화 포인트와 장기 흐름을 이해합니다.</div></a>
+      <a href="saju-today.html" class="guide-link-card"><div class="guide-link-title">오늘의 운세</div><div class="guide-link-text">하루 단위 분위기와 즉시 적용할 행동 기준을 확인합니다.</div></a>
+      <a href="saju-travel.html" class="guide-link-card"><div class="guide-link-title">여행운</div><div class="guide-link-text">이동, 여행 타이밍, 새로운 경험 흐름을 다룹니다.</div></a>
+      <a href="saju-move.html" class="guide-link-card"><div class="guide-link-title">이사운</div><div class="guide-link-text">거주 변화와 환경 적응 흐름을 읽는 설명입니다.</div></a>
+    </div></section>
 
-    <section class="section-card">
-      <h2 class="section-title">
-        <span class="title-deco">✦</span>
-        사주행운 바로 사용하기
-        <span class="title-deco">✦</span>
-      </h2>
-      <p class="guide-tip">
-        설명을 먼저 읽고 이해한 뒤, 실제 내 운세 결과를 보면 훨씬 더 잘 해석할 수 있습니다.
-        아래 버튼으로 바로 돌아가서 생년월일을 입력하고 오늘의 사주와 행운번호를 확인해보세요.
-      </p>
-      <div class="guide-cta-row">
-        <a href="index.html" class="cta-button guide-cta-link">👉 무료 사주 결과 보러가기</a>
-      </div>
-    </section>
-  
-    
-
+    <section class="section-card"><h2 class="section-title"><span class="title-deco">✦</span> 사주행운 바로 사용하기 <span class="title-deco">✦</span></h2><p class="guide-intro">설명을 먼저 읽고 이해한 뒤 실제 내 운세 결과를 보면 훨씬 더 잘 해석할 수 있습니다. 아래 버튼으로 돌아가서 생년월일을 입력하고 오늘의 사주와 행운번호를 확인해보세요.</p><div><a href="index.html" class="cta-button" style="text-decoration:none; display:block; text-align:center;">👉 무료 사주 결과 보러가기</a></div></section>
   </main>
 
   <footer class="footer">
-    <p class="footer-disclaimer">
-      사주행운은 재미와 흥미를 위한 서비스입니다<br/>
-      운세와 행운 번호는 오락 목적이며 결과를 보장하지 않습니다
-    </p>
+    <p class="footer-disclaimer">사주행운은 재미와 흥미를 위한 서비스입니다<br/>운세와 행운 번호는 오락 목적이며 결과를 보장하지 않습니다</p>
     <p class="footer-copyright">© 2026 사주행운</p>
-    <div class="footer-links">
-      <a href="privacy.html">개인정보처리방침</a>
-      <a href="terms.html">이용약관</a>
-      <a href="about.html">서비스 소개</a>
-    </div>
+    <div class="footer-links"><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="about.html">서비스 소개</a></div>
   </footer>
 </body>
 </html>
