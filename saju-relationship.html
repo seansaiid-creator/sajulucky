@@ -1,67 +1,124 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>인간관계 | 사주행운</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>인간관계 | 사주행운</title>
+  <meta name="description" content="폭넓은 관계 전반의 분위기, 갈등과 회복, 소통의 방향을 이해하는 주제입니다." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://sajulucky.vercel.app/saju-relationship.html" />
+  <meta property="og:title" content="인간관계 | 사주행운" />
+  <meta property="og:description" content="폭넓은 관계 전반의 분위기, 갈등과 회복, 소통의 방향을 이해하는 주제입니다." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sajulucky.vercel.app/saju-relationship.html" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:site_name" content="사주행운" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="인간관계 | 사주행운" />
+  <meta name="twitter:description" content="폭넓은 관계 전반의 분위기, 갈등과 회복, 소통의 방향을 이해하는 주제입니다." />
+  <meta name="naver-site-verification" content="672426f975e750045e6d27c9b8cb8b0413c75405" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .seo-hero-visual {
+      display:flex; justify-content:center; align-items:center; margin:20px auto 8px; width:100%; max-width:320px; min-height:160px;
+      border-radius:20px; background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border:1px solid rgba(255,255,255,0.08); box-shadow:0 8px 28px rgba(0,0,0,0.25); position:relative; overflow:hidden;
+    }
+    .seo-hero-visual::before {
+      content:""; position:absolute; width:180px; height:180px; border-radius:50%;
+      background:radial-gradient(circle, rgba(232,201,122,0.20), rgba(232,201,122,0.02) 70%); top:-30px; left:calc(50% - 90px);
+    }
+    .seo-hero-symbol { font-size:54px; line-height:1; position:relative; z-index:2; filter:drop-shadow(0 4px 10px rgba(232,201,122,0.18)); }
+    .seo-summary-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:14px; }
+    .seo-mini-card { border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.03); border-radius:16px; padding:14px 12px; }
+    .seo-mini-title { font-size:13px; color:var(--gold); margin-bottom:6px; font-weight:700; }
+    .seo-mini-text { font-size:13px; color:var(--text-sub); line-height:1.75; }
+    .seo-flow { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:14px; }
+    .seo-chip { padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,0.10); background:rgba(255,255,255,0.04); color:var(--text-sub); font-size:13px; text-decoration:none; }
+    .seo-cta-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:14px; }
+    .seo-link-card { display:block; text-decoration:none; border-radius:16px; padding:14px 12px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); }
+    .seo-link-title { color:var(--gold); font-size:14px; font-weight:700; margin-bottom:4px; }
+    .seo-link-text { color:var(--text-sub); font-size:12px; line-height:1.6; }
+    .seo-note { font-size:13px; color:var(--text-sub); line-height:1.9; }
+    .seo-full-btn { display:block; text-align:center; text-decoration:none; }
+    @media (max-width: 640px) {
+      .seo-summary-grid, .seo-cta-grid { grid-template-columns:1fr; }
+      .seo-hero-visual { min-height:140px; max-width:100%; }
+      .seo-hero-symbol { font-size:46px; }
+    }
+  </style>
 </head>
 <body>
+  <div class="bg-decoration">
+    <div class="star" style="--x:10%;--y:15%;--s:3px;--d:0s"></div>
+    <div class="star" style="--x:25%;--y:8%;--s:2px;--d:0.5s"></div>
+    <div class="star" style="--x:40%;--y:20%;--s:4px;--d:1s"></div>
+    <div class="star" style="--x:60%;--y:5%;--s:2px;--d:1.5s"></div>
+    <div class="star" style="--x:75%;--y:18%;--s:3px;--d:0.8s"></div>
+    <div class="star" style="--x:88%;--y:10%;--s:2px;--d:0.3s"></div>
+    <div class="moon-deco">☽</div>
+  </div>
 
-<header class="header">
-<div class="header-inner">
-<a href="index.html" class="logo">🔯 사주행운</a>
-</div>
-</header>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo"><span class="logo-icon">🔯</span><span class="logo-text">사주행운</span></a>
+      <nav class="nav">
+        <a href="saju-guide.html" class="nav-link">사주 이해하기</a>
+        <a href="guide.html" class="nav-link">이용안내</a>
+      </nav>
+    </div>
+  </header>
 
-<main class="main">
+  <main class="main">
+    <section class="hero">
+      <div class="hero-badge">✦ 사주 이해 콘텐츠 ✦</div>
+      <h1 class="hero-title">인간관계</h1>
+      <p class="hero-desc">폭넓은 관계 전반의 분위기, 갈등과 회복, 소통의 방향을 이해하는 주제입니다.</p>
+      <div class="seo-hero-visual" aria-hidden="true"><div class="seo-hero-symbol">💬</div></div>
+      <div class="seo-flow">
+        <span class="seo-chip">의미 이해</span><span class="seo-chip">흐름 해석</span><span class="seo-chip">상황별 적용</span><span class="seo-chip">실전 활용</span>
+      </div>
+    </section>
 
-<section class="hero">
-<h1 class="hero-title">인간관계 완벽 이해</h1>
-<p class="hero-desc">인간관계의 흐름과 의미를 쉽게 이해할 수 있도록 정리했습니다.</p>
-</section>
+    <section class="section-card">
+      <h2 class="section-title"><span class="title-deco">✦</span> 핵심 요약 <span class="title-deco">✦</span></h2>
+      <div class="seo-summary-grid">
+        <div class="seo-mini-card"><div class="seo-mini-title">인간관계의 의미</div><div class="seo-mini-text">인간관계은 단순 결과보다 현재 상황의 흐름과 해석 기준을 이해하는 데 의미가 있습니다.</div></div>
+        <div class="seo-mini-card"><div class="seo-mini-title">이럴 때 참고하면 좋습니다</div><div class="seo-mini-text">인간관계이 궁금하지만 무엇부터 봐야 할지 막막할 때, 현재 상태를 정리하고 선택 기준을 세우는 데 도움이 됩니다.</div></div>
+        <div class="seo-mini-card"><div class="seo-mini-title">해석할 때 중요한 점</div><div class="seo-mini-text">좋다·나쁘다로 단정하기보다 타이밍, 감정 상태, 현실 조건을 함께 보는 것이 중요합니다.</div></div>
+        <div class="seo-mini-card"><div class="seo-mini-title">활용 방식</div><div class="seo-mini-text">결과를 그대로 믿기보다 일상과 선택에 참고할 힌트로 활용하면 더 현실적으로 도움이 됩니다.</div></div>
+      </div>
+    </section>
 
-<section class="section-card">
-<h2 class="section-title">✦ 인간관계이란 무엇인가?</h2>
-<p class="seo-note">
-인간관계은 단순히 결과를 맞추는 개념이 아니라, 현재 상황의 흐름과 방향성을 이해하기 위한 기준입니다.
-사주에서는 타고난 기운과 현재 시기의 에너지를 함께 분석하여 어떤 선택이 더 유리한지 판단합니다.
-</p>
-<p class="seo-note">
-즉, 인간관계은 "앞으로 어떻게 될까?"를 맞히기보다 "지금 무엇을 해야 하는가"를 알려주는 역할을 합니다.
-</p>
-</section>
+    <section class="section-card">
+      <h2 class="section-title"><span class="title-deco">✦</span> 인간관계이란 무엇인가? <span class="title-deco">✦</span></h2>
+      <p class="seo-note">인간관계은 결과를 단정하는 문장이 아니라, 지금 내 삶에서 어떤 흐름이 강해지고 있는지 이해하는 데 도움을 주는 해석입니다. 많은 사람들이 사주를 볼 때 좋다, 나쁘다 같은 한 줄 결과를 먼저 떠올리지만, 실제로는 현재의 상태를 어떻게 읽고 어떤 선택을 해야 하는지 판단하는 기준으로 활용하는 편이 훨씬 현실적입니다. 폭넓은 관계 전반의 분위기, 갈등과 회복, 소통의 방향을 이해하는 주제입니다. 그래서 이 페이지는 인간관계을 처음 접하는 사람도 어렵지 않게 이해할 수 있도록, 개념부터 해석의 방향까지 차근차근 정리하는 데 초점을 두고 있습니다.</p>
+      <p class="seo-note" style="margin-top:14px;">사주는 태어난 연, 월, 일, 시간의 흐름을 바탕으로 사람의 성향과 시기의 분위기를 함께 봅니다. 같은 인간관계이라도 누군가에게는 기회가 넓어지는 시기일 수 있고, 다른 누군가에게는 속도를 늦추고 정리해야 하는 시기일 수 있습니다. 그래서 중요한 것은 단순히 결과 문장을 믿는 것이 아니라, 그 흐름이 현재 내 상황과 어떻게 맞물리는지 이해하는 것입니다. 이 과정을 통해 막연한 불안은 줄이고, 조금 더 현실적인 선택 기준을 만들 수 있습니다.</p>
+    </section>
 
-<section class="section-card">
-<h2 class="section-title">✦ 사주에서 왜 중요한가?</h2>
-<p class="seo-note">
-사주는 오행(목, 화, 토, 금, 수)의 균형으로 흐름을 해석합니다.
-특정 기운이 강하거나 약할 때 인간관계에 직접적인 영향을 미칠 수 있습니다.
-</p>
-<p class="seo-note">
-예를 들어 기운이 안정된 시기에는 결과가 자연스럽게 따라오고,
-불균형한 시기에는 노력 대비 결과가 부족하게 느껴질 수 있습니다.
-</p>
-</section>
+    <section class="section-card">
+      <h2 class="section-title"><span class="title-deco">✦</span> 사주에서 어떻게 보나? <span class="title-deco">✦</span></h2>
+      <p class="seo-note">사주에서는 오행의 균형과 흐름을 함께 봅니다. 목은 시작과 확장, 화는 표현과 추진력, 토는 안정과 유지, 금은 기준과 정리, 수는 감정과 지혜의 흐름과 연결해 이해할 수 있습니다. 인간관계을 볼 때도 이 다섯 기운이 어떤 식으로 움직이느냐에 따라 체감이 달라질 수 있습니다. 예를 들어 어떤 시기에는 빠르게 움직이는 것이 도움이 되지만, 어떤 시기에는 준비와 점검이 더 중요할 수 있습니다. 그래서 인간관계은 결과 자체보다 ‘지금 어느 쪽이 더 자연스러운가’를 읽는 데 의미가 있습니다.</p>
+      <p class="seo-note" style="margin-top:14px;">실제로 인간관계을 활용할 때는 세 가지를 기억하면 좋습니다. 첫째, 감정이 앞서기 쉬운 시기에는 결정의 속도를 조금 늦추는 것이 좋습니다. 둘째, 흐름이 좋다고 느껴질 때도 무리하게 욕심을 내기보다 기본을 지키는 것이 중요합니다. 셋째, 결과를 삶에 그대로 대입하기보다 현재 상황과 비교하며 참고 기준으로 삼아야 합니다. 이렇게 보면 인간관계은 막연한 기대를 키우는 도구가 아니라, 지금 내 선택을 조금 더 안정적으로 만드는 힌트가 됩니다.</p>
+    </section>
 
-<section class="section-card">
-<h2 class="section-title">✦ 이렇게 활용하면 좋습니다</h2>
-<ul class="seo-note">
-<li>현재 상황을 객관적으로 판단하는 기준으로 활용</li>
-<li>무리한 선택보다 타이밍을 고려한 결정</li>
-<li>감정보다 흐름 중심으로 행동 조절</li>
-<li>중요한 결정 전에 참고 기준으로 사용</li>
-</ul>
-</section>
+    <section class="section-card">
+      <h2 class="section-title"><span class="title-deco">✦</span> 이렇게 활용하면 좋습니다 <span class="title-deco">✦</span></h2>
+      <p class="seo-note">이 페이지를 통해 인간관계의 의미를 조금 더 쉽게 이해했다면, 이제 실제 내 흐름을 확인해보는 것이 가장 빠릅니다. 사주행운 메인에서는 생년월일과 성별, 필요한 경우 태어난 시간까지 입력해 오늘의 운세와 행운번호를 함께 확인할 수 있습니다. 설명을 먼저 읽고 결과를 보면 단순한 문장보다 훨씬 더 잘 이해되고, 현재 내 상황에 맞는 해석으로 연결하기도 쉬워집니다. 너무 무겁게 받아들이기보다, 참고용 가이드로 활용하면서 내 일상과 선택을 돌아보는 계기로 사용해보세요.</p>
+      <div class="seo-cta-grid">
+        <a href="index.html" class="seo-link-card"><div class="seo-link-title">지금 바로 결과 보기</div><div class="seo-link-text">생년월일과 성별을 입력하고 오늘의 운세와 행운번호를 확인해보세요.</div></a>
+        <a href="saju-guide.html" class="seo-link-card"><div class="seo-link-title">다른 사주 설명 더 보기</div><div class="seo-link-text">연애, 금전, 직업, 건강, 궁합 등 관련 주제를 함께 읽어보세요.</div></a>
+      </div>
+      <div style="margin-top:16px;"><a href="index.html" class="cta-button seo-full-btn">👉 오늘의 운세 · 행운번호 보기</a></div>
+    </section>
+  </main>
 
-<section class="section-card">
-<h2 class="section-title">✦ 지금 내 흐름 확인하기</h2>
-<p class="seo-note">
-지금 나의 인간관계 흐름이 어떤 상태인지 직접 확인해보세요.
-</p>
-<a href="index.html" class="cta-button">👉 무료 사주 결과 보기</a>
-</section>
-
-</main>
+  <footer class="footer">
+    <p class="footer-disclaimer">사주행운은 재미와 흥미를 위한 서비스입니다<br/>운세와 행운 번호는 오락 목적이며 결과를 보장하지 않습니다</p>
+    <p class="footer-copyright">© 2026 사주행운</p>
+    <div class="footer-links"><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="about.html">서비스 소개</a></div>
+  </footer>
 </body>
 </html>
