@@ -53,9 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initTopicSelection();
 });
 
-// ⚠️ Gemini API 키를 여기에 입력하세요
-// Google AI Studio (https://aistudio.google.com) 에서 무료 발급
-const GEMINI_API_KEY = 'YOUR_GEMINI_API_KEY_HERE';
+// Gemini API 키는 Vercel 환경변수(GEMINI_API_KEY)로 관리합니다.
 
 // ========================
 // 주제 설정
@@ -300,18 +298,25 @@ async function getFortuneFromGemini(saju, gender, topicKey = 'today') {
   "advice": "선택한 주제와 연결된 오늘의 조언 (1문장)"
 }`;
 
-  const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+  const res = await fetch('/api/gemini', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      contents: [{ parts: [{ text: prompt }] }],
-      generationConfig: { temperature: 0.85, maxOutputTokens: 900 }
-    })
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ prompt })
   });
 
-  if (!res.ok) throw new Error('Gemini API 오류');
+  if (!res.ok) {
+    let errorMessage = 'Gemini API 오류';
+    try {
+      const errorData = await res.json();
+      errorMessage = errorData?.error || errorMessage;
+    } catch (_) {}
+    throw new Error(errorMessage);
+  }
+
   const data = await res.json();
-  const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+  const text = data?.text || '';
   const clean = text.replace(/```json|```/g, '').trim();
   return JSON.parse(clean);
 }
@@ -441,20 +446,17 @@ async function startFortune() {
   // 사주 계산
   const saju = getSaju(year, month, day, hour || null);
 
-  // 운세 가져오기
+    // 운세 가져오기
   let fortune;
   try {
-    if (GEMINI_API_KEY && GEMINI_API_KEY !== 'YOUR_GEMINI_API_KEY_HERE') {
-      fortune = await getFortuneFromGemini(saju, selectedGender, selectedTopic);
-    } else {
-      // 템플릿 폴백
-      const tpl = getFortuneTemplate(saju, selectedGender);
-      fortune = { fortune: `${(TOPIC_CONFIG[selectedTopic] || TOPIC_CONFIG.today).label}을 중심으로 보면 ${tpl.text}`, advice: tpl.advice };
-    }
+    fortune = await getFortuneFromGemini(saju, selectedGender, selectedTopic);
   } catch (e) {
     console.warn('Gemini API 실패, 템플릿 사용:', e);
     const tpl = getFortuneTemplate(saju, selectedGender);
-    fortune = { fortune: `${(TOPIC_CONFIG[selectedTopic] || TOPIC_CONFIG.today).label}을 중심으로 보면 ${tpl.text}`, advice: tpl.advice };
+    fortune = {
+      fortune: `${(TOPIC_CONFIG[selectedTopic] || TOPIC_CONFIG.today).label}을 중심으로 보면 ${tpl.text}`,
+      advice: tpl.advice
+    };
   }
 
   fortune.fortune = ensureLongFortuneText(fortune.fortune);
